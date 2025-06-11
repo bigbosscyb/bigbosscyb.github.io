@@ -22,14 +22,6 @@ languages:
             sidebar:
                 subtitle: 分享知识心得
 
-services:
-    # Change it to your Disqus shortname before using
-    disqus:
-        shortname: "hugo-theme-stack"
-    # GA Tracking ID
-    googleAnalytics:
-        id:
-
 pagination:
     pagerSize: 10
 
@@ -70,7 +62,7 @@ params:
 
     comments:
         enabled: true
-        provider: disqus
+        provider: giscus
 
         disqusjs:
             shortname:
