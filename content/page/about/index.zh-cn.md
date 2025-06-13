@@ -7,4 +7,4 @@ menu:
             icon: user
 ---
 
-This is a test page for i18n support.
+我是bigboss，在这里我将要分享一些心得与知识。
