@@ -216,6 +216,47 @@ git push -u origin master
 
 ### 添加评论系统
 
-hugo默认集成的是discus评论系统，但是这里我推荐使用的是gitdiscus评论系统：因为它简单、容易继承。
+hugo默认集成的是disqus评论系统，但是这里我推荐使用的是giscus评论系统：因为它简单、容易继承。
 
-#### 
+#### 如何引入[giscus]([giscus](https://giscus.app/zh-CN))
+
+![image-20250614172618627](https://picture.939826.xyz/pictures/img/image-20250614172618627.png)
+
+1. 选择一个仓库：这里就用博客所在的仓库，我的博客仓库是https://github.com/bigbosscyb/bigbosscyb.github.io
+2. 安装[giscus app](https://github.com/apps/giscus)
+
+![giscus-install-preview](https://picture.939826.xyz/pictures/img/giscus-install-preview.png)
+
+点击安装会提示选一个仓库，选择上一步指定的仓库就行。
+
+3. 开启Discussions
+
+![image-20250614173118023](https://picture.939826.xyz/pictures/img/image-20250614173118023.png)
+
+4. 填写仓库地址获取评论系统配置信息
+
+![image-20250614173340255](https://picture.939826.xyz/pictures/img/image-20250614173340255.png)
+
+按照上述步骤操作完成后，便可以得到下面配置信息：
+
+![image-20250614173433533](https://picture.939826.xyz/pictures/img/image-20250614173433533.png)
+
+5. 将红框内的配置信息复制，然后替换博客所在仓库的主题文件夹下的评论/服务/giscus.yaml文件的这一段内容：
+
+![image-20250614173844404](https://picture.939826.xyz/pictures/img/image-20250614173844404.png)
+
+6. 修改博客所在仓库根目录下的hugo.yaml文件，将评论系统从disqus改为giscus
+
+![image-20250614174047163](https://picture.939826.xyz/pictures/img/image-20250614174047163.png)
+
+提交修改后，待自动部署完成后可看到博客中出现评论功能：
+
+![image-20250614174250600](https://picture.939826.xyz/pictures/img/image-20250614174250600.png)
+
+### 添加图床功能
+
+这部分功能再新开一个文章继续介绍，不然文章篇幅太长了，会让人看不下去~
+
+#### 使用github仓库当图床?
+
+#### 使用cloudflare R2当图床！
