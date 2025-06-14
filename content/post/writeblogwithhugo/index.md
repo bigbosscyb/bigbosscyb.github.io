@@ -1,6 +1,6 @@
 +++
 date = '2025-06-14T14:14:01+08:00'
-draft = true
+draft = false
 title = '使用hugo写博客'
 
 author = "bigbosscyb"
