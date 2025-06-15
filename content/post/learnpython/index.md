@@ -27,7 +27,7 @@ tags = [
 
 从哪里开始学？之前从廖雪峰老师的python教程中学过一遍，这次我想换个口味从别的地方学习，首先我想到的是看视频，然后我就从BliBli上找到播放量最高的几个教程迅速看了一下大纲和他们的几节课程；是挺好的，该有的知识点都提到了，还有的还带着实战。但对于我来说我觉得不太合适，因为：我觉的这些视频讲的节奏太慢！！！我的目的是快速将知识点都过一遍。所以最终我选择了每一个下载python安装包的官方网站中的文档。我看了一下他的大纲：
 
-![image-20250616001721062](C:\Users\48723\AppData\Roaming\Typora\typora-user-images\image-20250616001721062.png)
+![image-20250616001721062](https://picture.939826.xyz/pictures/img/image-20250616001721062.png)
 
 很精炼、很符合我的口味。
 
@@ -43,7 +43,7 @@ tags = [
 
 可以使用vscode，但我喜欢Jetbrains家族的IDE，所以我选择下载了pycharm。
 
-![image-20250616002431297](C:\Users\48723\AppData\Roaming\Typora\typora-user-images\image-20250616002431297.png)
+![image-20250616002431297](https://picture.939826.xyz/pictures/img/image-20250616002431297.png)
 
 #### 跟着官方文档开始吧
 
