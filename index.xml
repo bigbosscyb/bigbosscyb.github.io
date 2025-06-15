@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bigbosscyb</title><link>https://bigbosscyb.github.io/</link><description>Recent content on bigbosscyb</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>bigbosscyb</copyright><lastBuildDate>Sun, 15 Jun 2025 23:52:17 +0800</lastBuildDate><atom:link href="https://bigbosscyb.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>python 初识python</title><link>https://bigbosscyb.github.io/p/python-%E5%88%9D%E8%AF%86python/</link><pubDate>Sun, 15 Jun 2025 23:52:17 +0800</pubDate><guid>https://bigbosscyb.github.io/p/python-%E5%88%9D%E8%AF%86python/</guid><description>&lt;h3 id="为什么又开始学python了">为什么&amp;quot;又&amp;quot;开始学python了
+&lt;/h3>&lt;p>最近因为在git上学到了一个python写的小爬虫项目，这个小项目里面有一个requirements.txt文件和main.py文件；我刚下载下来的时候竟然跑不起来，由于之前我在&lt;a class="link" href="https://liaoxuefeng.com/books/python/introduction/index.html" target="_blank" rel="noopener"
+>简介 - Python教程 - 廖雪峰的官方网站&lt;/a>学过一遍python，但也因为长时间没有玩过Python了，这个十分简单的小项目我使用Pycharm竟然没有跑起来，一些死去的回忆开始攻击自己的大脑。pip包管理、模块引入、入口点、解释器、虚拟环境这些词儿在我脑海里打转，似乎我可以抓住但又抓不住。&lt;/p>
+&lt;h3 id="为什么决定记录博客了">为什么决定记录博客了
+&lt;/h3>&lt;p>我开始思考为什么会忘记？我想一是因为学完没有持续使用，保持热度；二是因为没有做好笔记。在全网搜了一下，最终让代码跑起来之后；我决定再次系统地把python的知识点快速过一遍，我要达到的最终效果就是，能适应日常需求，如：爬虫、文件下载、IO操作、http服务、socket通信等。&lt;/p>
+&lt;h3 id="为什么跟着官方文档来学">为什么跟着官方文档来学
+&lt;/h3>&lt;p>从哪里开始学？之前从廖雪峰老师的python教程中学过一遍，这次我想换个口味从别的地方学习，首先我想到的是看视频，然后我就从BliBli上找到播放量最高的几个教程迅速看了一下大纲和他们的几节课程；是挺好的，该有的知识点都提到了，还有的还带着实战。但对于我来说我觉得不太合适，因为：我觉的这些视频讲的节奏太慢！！！我的目的是快速将知识点都过一遍。所以最终我选择了每一个下载python安装包的官方网站中的文档。我看了一下他的大纲：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250616001721062.png"
+loading="lazy"
+alt="image-20250616001721062"
+>&lt;/p>
+&lt;p>很精炼、很符合我的口味。&lt;/p>
+&lt;p>那就跟着官方文档:&lt;a class="link" href="https://docs.python.org/zh-cn/3/index.html" target="_blank" rel="noopener"
+>3.13.5 Documentation&lt;/a>，开始python学习之旅吧。&lt;/p>
+&lt;h3 id="一口气看完前三节">一口气看完前三节
+&lt;/h3>&lt;h4 id="安装python解释器">安装python解释器
+&lt;/h4>&lt;p>就在这里：&lt;a class="link" href="https://www.python.org/" target="_blank" rel="noopener"
+>Welcome to Python.org&lt;/a>下载python安装包；安装教程在往上一搜一大把，这里没必要再介绍。&lt;/p>
+&lt;h4 id="安装pycharm编辑器">安装pycharm编辑器
+&lt;/h4>&lt;p>可以使用vscode，但我喜欢Jetbrains家族的IDE，所以我选择下载了pycharm。&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250616002431297.png"
+loading="lazy"
+alt="image-20250616002431297"
+>&lt;/p>
+&lt;h4 id="跟着官方文档开始吧">跟着官方文档开始吧
+&lt;/h4>&lt;p>第一节大概讲了一下Python的好处；&amp;quot;&lt;strong>简洁&lt;/strong>&amp;quot;、&amp;quot;&lt;strong>轻量&lt;/strong>&amp;ldquo;这些词儿希望吸引到学习的人。&lt;/p>
+&lt;p>第二节大概讲了一下Python解释器；我姑且把Python解释器狭隘地理解为：命令行吧。&lt;/p>
+&lt;p>第三节开始初探Python世界；把控制台输出、变量、数值计算、文本操作、列表操作都大致带着学习的人过了一遍，让你领略一下什么叫&amp;rdquo;&lt;strong>人生苦短，我用Python&lt;/strong>&amp;quot;，为什么这样讲？我觉得大家可以对比自己掌握的其它编程语言，看看想要实现列表的拼接、切片、列表的打印这些简单动作，比Python简单还是复杂。&lt;/p>
+&lt;p>对于第三节，我是对照着案例，把每一种操作几乎都敲了一遍代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;span class="lnt">75
+&lt;/span>&lt;span class="lnt">76
+&lt;/span>&lt;span class="lnt">77
+&lt;/span>&lt;span class="lnt">78
+&lt;/span>&lt;span class="lnt">79
+&lt;/span>&lt;span class="lnt">80
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 这是一个注释&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 纯数字计算&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;初识python中的数字&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">5&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 这条语句虽然没有什么意义但是也是一条合法语句 也可以看出python不需要分号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 变量赋值 在python中变量赋值就相当于变量定义了&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="c1"># 加法&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果出现了一个变量在使用前没有赋值过 就认为这个变量是未定义的 这是不合法的使用方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># print(&amp;#39;n is undefined&amp;#39;,n) #这里变量n未定义&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s1">&amp;#39;print函数自带一个\n换行符&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sa">r&lt;/span>&lt;span class="s1">&amp;#39;print函数还会在多个参数之间加入一个空格&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;5+6=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># print函数将参数值直接输出 print接收多个参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在Python中字符串常量可以用三种表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 第一种：&amp;#39;内容&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 第二种：&amp;#34;内容&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 第三种：&amp;#39;&amp;#39;&amp;#39;多行内容&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="c1"># 乘法&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;5*6=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="c1"># 减法&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;3-2=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">12&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 除法&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;12/5=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">e&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">12&lt;/span> &lt;span class="o">//&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 地板除 整数地板除必然是整数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;12//5=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">f&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">12&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 求余数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;12%5=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">g&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">**&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 计算乘方&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;2**5=&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">g&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 文本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;初识python中的文本&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;hello&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;hello&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;h
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">e
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">l
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">l
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">o
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;first line&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">second line.&amp;#39;&lt;/span> &lt;span class="c1"># 单引号表示字符串 \n是转义字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s1">&amp;#39;使用r表示文本原样输出:first line\nsecond line&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 使用r则表示里面的转义字符也只是普通字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串*数值n可以让字符串重复次,如：ikun*3--&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;ikun&amp;#39;&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 重复字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串其实是字符组成的数组,那么可以像数组那样使用下标访问某个位置的字符串，如:&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[2]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 索引操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串下标还可以倒着来,如&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[-1]直接可以取到最后一个字符-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串切片,即：可以从指定的区间(不包含结束位置)取出一段字符串,如：&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[1:-2]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 切片操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串切片,只指定开始,如：&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[1:]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:])&lt;/span> &lt;span class="c1"># 从指定位置切片到末尾&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串切片,只指定结束,如：&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[:1]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 从头切到指定位置之前&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;字符串切片,这样写再拼接起来正好是自己本身,&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[:1]+&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[1:]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;python中字符串不能修改,如：&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[0]=&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">l&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">,会报错&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># &amp;#39;nihao&amp;#39;[0] = &amp;#39;l&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;但是可以使用拼接,&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">l&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">+&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">nihao&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s1">[1:]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;l&amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;nihao&amp;#39;&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;初识python中的列表&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;打印列表元素-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 打印列表元素&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;切片时，既不写开始也不写结束 那就是全切&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">[:])&lt;/span> &lt;span class="c1"># 既不写开始也不写结束 那就是全切&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;列表支持索引,如：pylist[-1]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;列表哦支持切片,如：pylist[-3:]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">:])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">999&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;列表允许修改某个元素的值,如：pylist[0]=99-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pylist&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">7&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">8&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;合并列表,如：pylist+[7,8,9]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;向列表某位添加元素,如：pylist.append(10)&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">copyList&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pylist&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;直接将列表赋值给一个新变量copyList,那么这时copyList和pylist都指向的是同一个东西&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">copyList&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1234&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;修改copyList，那么pylist也会收到影响，如：copyList.append(1234)&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;copyList-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">copyList&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;pylist-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">newList&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">[:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;切片赋值给一个新变量,newList=pylist[:],那newList就是-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">newList&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;这时候再操作newList就和pylist无关了,如：newList[0]=1111&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">newList&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">11111&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">newList&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">999&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">888&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;为切片赋值，可以改变列表的大小，甚至清空列表,如：pylist[3:6]=[999,888]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pylist&lt;/span>&lt;span class="p">[:]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;直接给切片赋值一个空列表，可以清空列表,如：pylist[:]=[]-&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pylist&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下面是输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">初识python中的数字
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">print函数自带一个&lt;span class="se">\n&lt;/span>换行符 print函数还会在多个参数之间加入一个空格
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5+6&lt;span class="o">=&lt;/span> &lt;span class="m">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5*6&lt;span class="o">=&lt;/span> &lt;span class="m">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">3-2&lt;span class="o">=&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">12/5&lt;span class="o">=&lt;/span> 2.4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">12//5&lt;span class="o">=&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">12%5&lt;span class="o">=&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2**5&lt;span class="o">=&lt;/span> &lt;span class="m">32&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">初识python中的文本
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">first line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">second line.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">使用r表示文本原样输出:first line&lt;span class="se">\n&lt;/span>second line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串*数值n可以让字符串重复次,如：ikun*3--&amp;gt; ikunikunikun
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串其实是字符组成的数组,那么可以像数组那样使用下标访问某个位置的字符串，如:&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>2&lt;span class="o">]&lt;/span>-&amp;gt; h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串下标还可以倒着来,如&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>-1&lt;span class="o">]&lt;/span>直接可以取到最后一个字符-&amp;gt; o
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串切片,即：可以从指定的区间&lt;span class="o">(&lt;/span>不包含结束位置&lt;span class="o">)&lt;/span>取出一段字符串,如：&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>1:-2&lt;span class="o">]&lt;/span>-&amp;gt; ih
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串切片,只指定开始,如：&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>1:&lt;span class="o">]&lt;/span>-&amp;gt; ihao
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串切片,只指定结束,如：&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>:1&lt;span class="o">]&lt;/span>-&amp;gt; n
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">字符串切片,这样写再拼接起来正好是自己本身,&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>:1&lt;span class="o">]&lt;/span>+&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>1:&lt;span class="o">]&lt;/span>-&amp;gt; nihao
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">python中字符串不能修改,如：&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>0&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;l&amp;#34;&lt;/span>,会报错
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">但是可以使用拼接,&lt;span class="s2">&amp;#34;l&amp;#34;&lt;/span>+&lt;span class="s2">&amp;#34;nihao&amp;#34;&lt;/span>&lt;span class="o">[&lt;/span>1:&lt;span class="o">]&lt;/span>-&amp;gt; lihao
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">初识python中的列表
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">打印列表元素-&amp;gt; &lt;span class="o">[&lt;/span>1, 2, 3, 4, 5&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">切片时，既不写开始也不写结束 那就是全切 &lt;span class="o">[&lt;/span>1, 2, 3, 4, 5&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">列表支持索引,如：pylist&lt;span class="o">[&lt;/span>-1&lt;span class="o">]&lt;/span>-&amp;gt; &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">列表哦支持切片,如：pylist&lt;span class="o">[&lt;/span>-3:&lt;span class="o">]&lt;/span>-&amp;gt; &lt;span class="o">[&lt;/span>3, 4, 5&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">列表允许修改某个元素的值,如：pylist&lt;span class="o">[&lt;/span>0&lt;span class="o">]=&lt;/span>99-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">合并列表,如：pylist+&lt;span class="o">[&lt;/span>7,8,9&lt;span class="o">]&lt;/span>-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">向列表某位添加元素,如：pylist.append&lt;span class="o">(&lt;/span>10&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9, 10&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">直接将列表赋值给一个新变量copyList,那么这时copyList和pylist都指向的是同一个东西
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">修改copyList，那么pylist也会收到影响，如：copyList.append&lt;span class="o">(&lt;/span>1234&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">copyList-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pylist-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">切片赋值给一个新变量,newList&lt;span class="o">=&lt;/span>pylist&lt;span class="o">[&lt;/span>:&lt;span class="o">]&lt;/span>,那newList就是-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">这时候再操作newList就和pylist无关了,如：newList&lt;span class="o">[&lt;/span>0&lt;span class="o">]=&lt;/span>&lt;span class="m">1111&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>11111, 2, 3, 4, 5, 7, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">为切片赋值，可以改变列表的大小，甚至清空列表,如：pylist&lt;span class="o">[&lt;/span>3:6&lt;span class="o">]=[&lt;/span>999,888&lt;span class="o">]&lt;/span>-&amp;gt; &lt;span class="o">[&lt;/span>999, 2, 3, 999, 888, 8, 9, 10, 1234&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">直接给切片赋值一个空列表，可以清空列表,如：pylist&lt;span class="o">[&lt;/span>:&lt;span class="o">]=[]&lt;/span>-&amp;gt; &lt;span class="o">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到，对于一个简单的练习Demo，可以连入口都不用写；直接写你想写的，这种低束缚，对于我只是想写一些小项目的人来说，确实很有吸引力。今天先到这里，Night！&lt;/p></description></item><item><title>使用hugo写博客</title><link>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/</link><pubDate>Sat, 14 Jun 2025 14:14:01 +0800</pubDate><guid>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/</guid><description>&lt;h3 id="介绍hugo">介绍Hugo
+&lt;/h3>&lt;p>基于GO语言编写的&lt;strong>静态网站生成器&lt;/strong>，能够托管在Github Pages上，可以集成git discuss的评论系统，无需数据库，不需要写代码，就可以快速帮助你搭建一个属于自己的博客网站。&lt;/p>
+&lt;h3 id="下载hugo">下载Hugo
+&lt;/h3>&lt;ul>
+&lt;li>方式一：从github下载release版&lt;/li>
+&lt;li>方式二：如果访问github速度太慢，可以在浏览器搜索Hugo下载&lt;/li>
+&lt;/ul>
+&lt;p>总之，下载的是这个压缩包：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614142959933.png" alt="image-20250614142959933" style="zoom:55%;" />
+&lt;h3 id="使用hugo">使用Hugo
+&lt;/h3>&lt;h4 id="创建站点">创建站点
+&lt;/h4>&lt;p>我们主要是在使用hugo.exe来进行一系列操作的，这里建议新开一个要写博客的目录，（&lt;strong>由于我们没有把hugo.exe配置到环境变量中&lt;/strong>）接着把hugo.exe拷贝到那个目录。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614143436876.png" alt="image-20250614143436876" style="zoom:80%;" />
+&lt;p>然后使用 hugo new site 命令创建一个博客站点，如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo new site hugo-test
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>命令执行成功后，会生成一个hugo-test的目录，那么一个本地博客站点就已经搭建好了。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144054698.png" alt="image-20250614144054698" style="zoom: 80%;" />
+&lt;p>可以观察到目录里面的内容&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144135229.png" alt="image-20250614144135229" style="zoom:90%;" />
+&lt;h4 id="浏览博客站点">浏览博客站点
+&lt;/h4>&lt;p>虽然我们还没有写一篇博客，但我们已经可以浏览这个站点了；这里我们还是把hugo.exe往hugo-test目录下拷贝，以便于能继续使用hugo命令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo server -D &lt;span class="c1">#-D中的D是buildDrafts的简写&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144546898.png" alt="image-20250614144546898" style="zoom:60%;" />
+&lt;p>键盘按住CTRL键，然后鼠标点击控制台中的链接，即可在浏览器中打开这个站点：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144412454.png" alt="image-20250614144412454" style="zoom:125%;" />
+&lt;h4 id="配置主题">配置主题
+&lt;/h4>&lt;p>主题文件夹其实类似一个站点模板，这里将主题文件夹下的配置文件hugo.yaml及examplesite目录下的内容拷贝到我们的站点下，从而达到快速应用主题的目的。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>下载主题：点击链接[hugo stack](&lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
+>Hugo Themes&lt;/a>)，找到stack主题下载后解压缩：然后将主题文件夹复制到之前创建的hugo-test站点目录的themes文件夹下，并将主题文件改名，最后效果如下：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153314011.png" alt="image-20250614153314011" style="zoom:96%;" />
+&lt;/li>
+&lt;li>
+&lt;p>把主题文件夹hugo-theme-stack中exampleSite\content\post路径下的rich-content目录删掉，然后把hugo-theme-stack\exampleSite\下面的content目录和hugo.yaml复制到hugo-test站点目录下，最后还要把hugo-test目录下的hugo.toml文件删掉&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153603838.png" alt="image-20250614153603838" style="zoom:82%;" />
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153636596.png" alt="image-20250614153636596" style="zoom:90%;" />
+&lt;ol start="3">
+&lt;li>打开hugo.yaml，确认里面的theme节点的配置使用的站点目录下themes目录里面的主题文件夹名即：&lt;/li>
+&lt;/ol>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614154248291.png" alt="image-20250614154248291" style="zoom: 64%;" />
+&lt;ol start="4">
+&lt;li>重新启动站点服务，查看效果：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo server -D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614155512875.png"
+loading="lazy"
+alt="image-20250614155512875"
+>&lt;/p>
+&lt;h3 id="github部署">github部署
+&lt;/h3>&lt;p>这里我们介绍如何使用github管理hugo站点并且自动化发布站点应用&lt;/p>
+&lt;h4 id="创建github-pages类型的仓库">创建github pages类型的仓库
+&lt;/h4>&lt;p>创建一个以{github用户名}.github.io命名的仓库，就会被github认为你创建了一个静态页面网站；github会以https://仓库名 作为静态网站的地址，仓库创建后稍后可访问。&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614164036299.png"
+loading="lazy"
+alt="image-20250614164036299"
+>&lt;/p>
+&lt;h4 id="上传hugo站点文件到仓库">上传hugo站点文件到仓库
+&lt;/h4>&lt;ol>
+&lt;li>在本地hugo-test目录下，创建一个.gitignore文件，添加以下内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自动生成的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">public
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resources
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.hugo_build.lock
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># hugo命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过以上操作，将站点自动生成的文件如：public发布目录、.hugo_build.lock自动生成文件 等进行了过滤；这些文件不提交至远程仓库&lt;/p>
+&lt;ol start="2">
+&lt;li>创建本地仓库，然后将本地仓库上传至远程仓库&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin &lt;span class="o">{&lt;/span>你的github仓库地址&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin mater
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="创建github-workflows">创建github workflows
+&lt;/h4>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614164928986.png"
+loading="lazy"
+alt="image-20250614164928986"
+>&lt;/p>
+&lt;p>在远程仓库使用Github Actions创建一个工作流，来帮助我们自动发布编写的博客：当我们在本地写好一篇博客，推送至远程时，触发工作流最后是实现自动部署。这里我的workflows目录下，需要填写的内容摘抄自另外一个github博主【[&lt;strong>.github/workflows/deploy.yml&lt;/strong>](&lt;a class="link" href="https://github.com/BYJRK/byjrk.github.io/blob/master/.github/workflows/deploy.yml" target="_blank" rel="noopener"
+>byjrk.github.io/.github/workflows/deploy.yml at master · BYJRK/byjrk.github.io&lt;/a>)】。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy to Github Pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">master]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">master]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">permissions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Give the default GITHUB_TOKEN write permission to commit and push the&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># added or changed files to the repository.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">contents&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">write&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Cache Hugo resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/cache@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">env&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">cache-name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cache-hugo-resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ env.cache-name }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/setup-go@v5&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">go-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1.24.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">go version&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;0.139.4&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify --gc&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy 🚀&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">JamesIves/github-pages-deploy-action@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gh-pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">folder&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clean&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">single-commit&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的工作流配置，可直接拷贝。大致效果就是，实际部署时将文件发布到了另外一个[gh-pages]分支上。&lt;/p>
+&lt;h4 id="在本地新增一篇文章上传测试自动部署效果">在本地新增一篇文章上传测试自动部署效果
+&lt;/h4>&lt;ul>
+&lt;li>创建一篇新的博客&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new conten post/testblog/index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用编辑器打开该目录下的index.md文件，编辑好博客内容后。&lt;/p>
+&lt;ul>
+&lt;li>本地启动查看效果&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo server -D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>推送至远程观察工作流&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git add.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &amp;#34;post blog&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614170926014.png"
+loading="lazy"
+alt="image-20250614170926014"
+>&lt;/p>
+&lt;h3 id="添加评论系统">添加评论系统
+&lt;/h3>&lt;p>hugo默认集成的是disqus评论系统，但是这里我推荐使用的是giscus评论系统：因为它简单、容易继承。&lt;/p>
+&lt;h4 id="如何引入giscusgiscushttpsgiscusappzh-cn">如何引入&lt;a class="link" href="[giscus]%28https://giscus.app/zh-CN%29" >giscus&lt;/a>
+&lt;/h4>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614172618627.png"
+loading="lazy"
+alt="image-20250614172618627"
+>&lt;/p>
+&lt;ol>
+&lt;li>选择一个仓库：这里就用博客所在的仓库，我的博客仓库是https://github.com/bigbosscyb/bigbosscyb.github.io&lt;/li>
+&lt;li>安装&lt;a class="link" href="https://github.com/apps/giscus" target="_blank" rel="noopener"
+>giscus app&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/giscus-install-preview.png"
+loading="lazy"
+alt="giscus-install-preview"
+>&lt;/p>
+&lt;p>点击安装会提示选一个仓库，选择上一步指定的仓库就行。&lt;/p>
+&lt;ol start="3">
+&lt;li>开启Discussions&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173118023.png"
+loading="lazy"
+alt="image-20250614173118023"
+>&lt;/p>
+&lt;ol start="4">
+&lt;li>填写仓库地址获取评论系统配置信息&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173340255.png"
+loading="lazy"
+alt="image-20250614173340255"
+>&lt;/p>
+&lt;p>按照上述步骤操作完成后，便可以得到下面配置信息：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173433533.png"
+loading="lazy"
+alt="image-20250614173433533"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>将红框内的配置信息复制，然后替换博客所在仓库的主题文件夹下的评论/服务/giscus.yaml文件的这一段内容：&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173844404.png"
+loading="lazy"
+alt="image-20250614173844404"
+>&lt;/p>
+&lt;ol start="6">
+&lt;li>修改博客所在仓库根目录下的hugo.yaml文件，将评论系统从disqus改为giscus&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614174047163.png"
+loading="lazy"
+alt="image-20250614174047163"
+>&lt;/p>
+&lt;p>提交修改后，待自动部署完成后可看到博客中出现评论功能：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614174250600.png"
+loading="lazy"
+alt="image-20250614174250600"
+>&lt;/p>
+&lt;h3 id="添加图床功能">添加图床功能
+&lt;/h3>&lt;p>这部分功能再新开一个文章继续介绍，不然文章篇幅太长了，会让人看不下去~&lt;/p>
+&lt;h4 id="使用github仓库当图床">使用github仓库当图床?
+&lt;/h4>&lt;h4 id="使用cloudflare-r2当图床">使用cloudflare R2当图床！
+&lt;/h4></description></item><item><title>归档</title><link>https://bigbosscyb.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://bigbosscyb.github.io/archives/</guid><description/></item><item><title>搜索</title><link>https://bigbosscyb.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://bigbosscyb.github.io/search/</guid><description/></item></channel></rss>

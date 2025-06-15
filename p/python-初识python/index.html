@@ -1,0 +1,258 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="跟着官方文档学python"><title>python 初识python</title>
+<link rel=canonical href=https://bigbosscyb.github.io/p/python-%E5%88%9D%E8%AF%86python/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="python 初识python"><meta property='og:description' content="跟着官方文档学python"><meta property='og:url' content='https://bigbosscyb.github.io/p/python-%E5%88%9D%E8%AF%86python/'><meta property='og:site_name' content='bigbosscyb'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='python基础'><meta property='article:published_time' content='2025-06-15T23:52:17+08:00'><meta property='article:modified_time' content='2025-06-15T23:52:17+08:00'><meta name=twitter:title content="python 初识python"><meta name=twitter:description content="跟着官方文档学python"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu4248561383974080784.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>bigbosscyb</a></h1><h2 class=site-description>分享知识心得</h2></div></header><ol class=menu-social><li><a href=https://space.bilibili.com/301876846 target=_blank title=BiliBili rel=me><svg class="icon icon-tabler icon-tabler-brand-bilibili" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 014-4h10a4 4 0 014 4v6a4 4 0 01-4 4H7a4 4 0 01-4-4v-6z"/><path d="M8 3l2 3"/><path d="M16 3l-2 3"/><path d="M9 13v-2"/><path d="M15 11v2"/></svg></a></li><li><a href=https://github.com/bigbosscyb target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#为什么又开始学python了>为什么"又"开始学python了</a></li><li><a href=#为什么决定记录博客了>为什么决定记录博客了</a></li><li><a href=#为什么跟着官方文档来学>为什么跟着官方文档来学</a></li><li><a href=#一口气看完前三节>一口气看完前三节</a><ol><li><a href=#安装python解释器>安装python解释器</a></li><li><a href=#安装pycharm编辑器>安装pycharm编辑器</a></li><li><a href=#跟着官方文档开始吧>跟着官方文档开始吧</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/python/>Python</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/python-%E5%88%9D%E8%AF%86python/>python 初识python</a></h2><h3 class=article-subtitle>跟着官方文档学python</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-06-15</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 9 分钟</time></div></footer></div></header><section class=article-content><h3 id=为什么又开始学python了>为什么"又"开始学python了</h3><p>最近因为在git上学到了一个python写的小爬虫项目，这个小项目里面有一个requirements.txt文件和main.py文件；我刚下载下来的时候竟然跑不起来，由于之前我在<a class=link href=https://liaoxuefeng.com/books/python/introduction/index.html target=_blank rel=noopener>简介 - Python教程 - 廖雪峰的官方网站</a>学过一遍python，但也因为长时间没有玩过Python了，这个十分简单的小项目我使用Pycharm竟然没有跑起来，一些死去的回忆开始攻击自己的大脑。pip包管理、模块引入、入口点、解释器、虚拟环境这些词儿在我脑海里打转，似乎我可以抓住但又抓不住。</p><h3 id=为什么决定记录博客了>为什么决定记录博客了</h3><p>我开始思考为什么会忘记？我想一是因为学完没有持续使用，保持热度；二是因为没有做好笔记。在全网搜了一下，最终让代码跑起来之后；我决定再次系统地把python的知识点快速过一遍，我要达到的最终效果就是，能适应日常需求，如：爬虫、文件下载、IO操作、http服务、socket通信等。</p><h3 id=为什么跟着官方文档来学>为什么跟着官方文档来学</h3><p>从哪里开始学？之前从廖雪峰老师的python教程中学过一遍，这次我想换个口味从别的地方学习，首先我想到的是看视频，然后我就从BliBli上找到播放量最高的几个教程迅速看了一下大纲和他们的几节课程；是挺好的，该有的知识点都提到了，还有的还带着实战。但对于我来说我觉得不太合适，因为：我觉的这些视频讲的节奏太慢！！！我的目的是快速将知识点都过一遍。所以最终我选择了每一个下载python安装包的官方网站中的文档。我看了一下他的大纲：</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250616001721062.png loading=lazy alt=image-20250616001721062></p><p>很精炼、很符合我的口味。</p><p>那就跟着官方文档:<a class=link href=https://docs.python.org/zh-cn/3/index.html target=_blank rel=noopener>3.13.5 Documentation</a>，开始python学习之旅吧。</p><h3 id=一口气看完前三节>一口气看完前三节</h3><h4 id=安装python解释器>安装python解释器</h4><p>就在这里：<a class=link href=https://www.python.org/ target=_blank rel=noopener>Welcome to Python.org</a>下载python安装包；安装教程在往上一搜一大把，这里没必要再介绍。</p><h4 id=安装pycharm编辑器>安装pycharm编辑器</h4><p>可以使用vscode，但我喜欢Jetbrains家族的IDE，所以我选择下载了pycharm。</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250616002431297.png loading=lazy alt=image-20250616002431297></p><h4 id=跟着官方文档开始吧>跟着官方文档开始吧</h4><p>第一节大概讲了一下Python的好处；"<strong>简洁</strong>"、"<strong>轻量</strong>&ldquo;这些词儿希望吸引到学习的人。</p><p>第二节大概讲了一下Python解释器；我姑且把Python解释器狭隘地理解为：命令行吧。</p><p>第三节开始初探Python世界；把控制台输出、变量、数值计算、文本操作、列表操作都大致带着学习的人过了一遍，让你领略一下什么叫&rdquo;<strong>人生苦短，我用Python</strong>"，为什么这样讲？我觉得大家可以对比自己掌握的其它编程语言，看看想要实现列表的拼接、切片、列表的打印这些简单动作，比Python简单还是复杂。</p><p>对于第三节，我是对照着案例，把每一种操作几乎都敲了一遍代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 这是一个注释</span>
+</span></span><span class=line><span class=cl><span class=c1># 纯数字计算</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;初识python中的数字&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=mi>5</span> <span class=o>+</span> <span class=mi>5</span>  <span class=c1># 这条语句虽然没有什么意义但是也是一条合法语句 也可以看出python不需要分号</span>
+</span></span><span class=line><span class=cl><span class=c1># 变量赋值 在python中变量赋值就相当于变量定义了</span>
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=mi>5</span> <span class=o>+</span> <span class=mi>6</span>  <span class=c1># 加法</span>
+</span></span><span class=line><span class=cl><span class=c1># 如果出现了一个变量在使用前没有赋值过 就认为这个变量是未定义的 这是不合法的使用方式</span>
+</span></span><span class=line><span class=cl><span class=c1># print(&#39;n is undefined&#39;,n) #这里变量n未定义</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;print函数自带一个\n换行符&#39;</span><span class=p>,</span> <span class=sa>r</span><span class=s1>&#39;print函数还会在多个参数之间加入一个空格&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;5+6=&#39;</span><span class=p>,</span> <span class=n>a</span><span class=p>)</span>  <span class=c1># print函数将参数值直接输出 print接收多个参数</span>
+</span></span><span class=line><span class=cl><span class=c1># 在Python中字符串常量可以用三种表示</span>
+</span></span><span class=line><span class=cl><span class=c1># 第一种：&#39;内容&#39;</span>
+</span></span><span class=line><span class=cl><span class=c1># 第二种：&#34;内容&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 第三种：&#39;&#39;&#39;多行内容&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>b</span> <span class=o>=</span> <span class=mi>5</span> <span class=o>*</span> <span class=mi>6</span>  <span class=c1># 乘法</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;5*6=&#39;</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>c</span> <span class=o>=</span> <span class=mi>3</span> <span class=o>-</span> <span class=mi>2</span>  <span class=c1># 减法</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;3-2=&#39;</span><span class=p>,</span> <span class=n>c</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>d</span> <span class=o>=</span> <span class=mi>12</span> <span class=o>/</span> <span class=mi>5</span>  <span class=c1># 除法</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;12/5=&#39;</span><span class=p>,</span> <span class=n>d</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>e</span> <span class=o>=</span> <span class=mi>12</span> <span class=o>//</span> <span class=mi>5</span>  <span class=c1># 地板除 整数地板除必然是整数</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;12//5=&#39;</span><span class=p>,</span> <span class=n>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>f</span> <span class=o>=</span> <span class=mi>12</span> <span class=o>%</span> <span class=mi>5</span>  <span class=c1># 求余数</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;12%5=&#39;</span><span class=p>,</span> <span class=n>f</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>g</span> <span class=o>=</span> <span class=mi>2</span> <span class=o>**</span> <span class=mi>5</span>  <span class=c1># 计算乘方</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;2**5=&#39;</span><span class=p>,</span> <span class=n>g</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 文本</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;初识python中的文本&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=s1>&#39;hello&#39;</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;hello&#34;</span>
+</span></span><span class=line><span class=cl><span class=s1>&#39;&#39;&#39;h
+</span></span></span><span class=line><span class=cl><span class=s1>e
+</span></span></span><span class=line><span class=cl><span class=s1>l
+</span></span></span><span class=line><span class=cl><span class=s1>l
+</span></span></span><span class=line><span class=cl><span class=s1>o
+</span></span></span><span class=line><span class=cl><span class=s1>&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;first line</span><span class=se>\n</span><span class=s1>second line.&#39;</span>  <span class=c1># 单引号表示字符串 \n是转义字符</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;使用r表示文本原样输出:first line\nsecond line&#39;</span><span class=p>)</span>  <span class=c1># 使用r则表示里面的转义字符也只是普通字符</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串*数值n可以让字符串重复次,如：ikun*3--&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;ikun&#39;</span> <span class=o>*</span> <span class=mi>3</span><span class=p>)</span>  <span class=c1># 重复字符串</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串其实是字符组成的数组,那么可以像数组那样使用下标访问某个位置的字符串，如:</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[2]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=mi>2</span><span class=p>])</span>  <span class=c1># 索引操作</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串下标还可以倒着来,如</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[-1]直接可以取到最后一个字符-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串切片,即：可以从指定的区间(不包含结束位置)取出一段字符串,如：</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[1:-2]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=o>-</span><span class=mi>2</span><span class=p>])</span>  <span class=c1># 切片操作</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串切片,只指定开始,如：</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[1:]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=mi>1</span><span class=p>:])</span>  <span class=c1># 从指定位置切片到末尾</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串切片,只指定结束,如：</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[:1]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[:</span><span class=mi>1</span><span class=p>])</span>  <span class=c1># 从头切到指定位置之前</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;字符串切片,这样写再拼接起来正好是自己本身,</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[:1]+</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[1:]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[:</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=mi>1</span><span class=p>:])</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;python中字符串不能修改,如：</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[0]=</span><span class=se>\&#34;</span><span class=s1>l</span><span class=se>\&#34;</span><span class=s1>,会报错&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># &#39;nihao&#39;[0] = &#39;l&#39;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;但是可以使用拼接,</span><span class=se>\&#34;</span><span class=s1>l</span><span class=se>\&#34;</span><span class=s1>+</span><span class=se>\&#34;</span><span class=s1>nihao</span><span class=se>\&#34;</span><span class=s1>[1:]-&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;l&#39;</span> <span class=o>+</span> <span class=s1>&#39;nihao&#39;</span><span class=p>[</span><span class=mi>1</span><span class=p>:])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 列表</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;初识python中的列表&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;打印列表元素-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>  <span class=c1># 打印列表元素</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;切片时，既不写开始也不写结束 那就是全切&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>[:])</span>  <span class=c1># 既不写开始也不写结束 那就是全切</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;列表支持索引,如：pylist[-1]-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;列表哦支持切片,如：pylist[-3:]-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>[</span><span class=o>-</span><span class=mi>3</span><span class=p>:])</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>999</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;列表允许修改某个元素的值,如：pylist[0]=99-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span> <span class=o>=</span> <span class=n>pylist</span> <span class=o>+</span> <span class=p>[</span><span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;合并列表,如：pylist+[7,8,9]-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;向列表某位添加元素,如：pylist.append(10)&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>copyList</span> <span class=o>=</span> <span class=n>pylist</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;直接将列表赋值给一个新变量copyList,那么这时copyList和pylist都指向的是同一个东西&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>copyList</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=mi>1234</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;修改copyList，那么pylist也会收到影响，如：copyList.append(1234)&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;copyList-&gt;&#39;</span><span class=p>,</span> <span class=n>copyList</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;pylist-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>newList</span> <span class=o>=</span> <span class=n>pylist</span><span class=p>[:]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;切片赋值给一个新变量,newList=pylist[:],那newList就是-&gt;&#39;</span><span class=p>,</span> <span class=n>newList</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;这时候再操作newList就和pylist无关了,如：newList[0]=1111&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>newList</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>11111</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>newList</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span><span class=p>[</span><span class=mi>3</span><span class=p>:</span><span class=mi>6</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=mi>999</span><span class=p>,</span> <span class=mi>888</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;为切片赋值，可以改变列表的大小，甚至清空列表,如：pylist[3:6]=[999,888]-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>pylist</span><span class=p>[:]</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;直接给切片赋值一个空列表，可以清空列表,如：pylist[:]=[]-&gt;&#39;</span><span class=p>,</span> <span class=n>pylist</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>下面是输出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>初识python中的数字
+</span></span><span class=line><span class=cl>print函数自带一个<span class=se>\n</span>换行符 print函数还会在多个参数之间加入一个空格
+</span></span><span class=line><span class=cl>5+6<span class=o>=</span> <span class=m>11</span>
+</span></span><span class=line><span class=cl>5*6<span class=o>=</span> <span class=m>30</span>
+</span></span><span class=line><span class=cl>3-2<span class=o>=</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>12/5<span class=o>=</span> 2.4
+</span></span><span class=line><span class=cl>12//5<span class=o>=</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl>12%5<span class=o>=</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl>2**5<span class=o>=</span> <span class=m>32</span>
+</span></span><span class=line><span class=cl>初识python中的文本
+</span></span><span class=line><span class=cl>first line
+</span></span><span class=line><span class=cl>second line.
+</span></span><span class=line><span class=cl>使用r表示文本原样输出:first line<span class=se>\n</span>second line
+</span></span><span class=line><span class=cl>字符串*数值n可以让字符串重复次,如：ikun*3--&gt; ikunikunikun
+</span></span><span class=line><span class=cl>字符串其实是字符组成的数组,那么可以像数组那样使用下标访问某个位置的字符串，如:<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>2<span class=o>]</span>-&gt; h
+</span></span><span class=line><span class=cl>字符串下标还可以倒着来,如<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>-1<span class=o>]</span>直接可以取到最后一个字符-&gt; o
+</span></span><span class=line><span class=cl>字符串切片,即：可以从指定的区间<span class=o>(</span>不包含结束位置<span class=o>)</span>取出一段字符串,如：<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>1:-2<span class=o>]</span>-&gt; ih
+</span></span><span class=line><span class=cl>字符串切片,只指定开始,如：<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>1:<span class=o>]</span>-&gt; ihao
+</span></span><span class=line><span class=cl>字符串切片,只指定结束,如：<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>:1<span class=o>]</span>-&gt; n
+</span></span><span class=line><span class=cl>字符串切片,这样写再拼接起来正好是自己本身,<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>:1<span class=o>]</span>+<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>1:<span class=o>]</span>-&gt; nihao
+</span></span><span class=line><span class=cl>python中字符串不能修改,如：<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>0<span class=o>]=</span><span class=s2>&#34;l&#34;</span>,会报错
+</span></span><span class=line><span class=cl>但是可以使用拼接,<span class=s2>&#34;l&#34;</span>+<span class=s2>&#34;nihao&#34;</span><span class=o>[</span>1:<span class=o>]</span>-&gt; lihao
+</span></span><span class=line><span class=cl>初识python中的列表
+</span></span><span class=line><span class=cl>打印列表元素-&gt; <span class=o>[</span>1, 2, 3, 4, 5<span class=o>]</span>
+</span></span><span class=line><span class=cl>切片时，既不写开始也不写结束 那就是全切 <span class=o>[</span>1, 2, 3, 4, 5<span class=o>]</span>
+</span></span><span class=line><span class=cl>列表支持索引,如：pylist<span class=o>[</span>-1<span class=o>]</span>-&gt; <span class=m>5</span>
+</span></span><span class=line><span class=cl>列表哦支持切片,如：pylist<span class=o>[</span>-3:<span class=o>]</span>-&gt; <span class=o>[</span>3, 4, 5<span class=o>]</span>
+</span></span><span class=line><span class=cl>列表允许修改某个元素的值,如：pylist<span class=o>[</span>0<span class=o>]=</span>99-&gt; <span class=o>[</span>999, 2, 3, 4, 5<span class=o>]</span>
+</span></span><span class=line><span class=cl>合并列表,如：pylist+<span class=o>[</span>7,8,9<span class=o>]</span>-&gt; <span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9<span class=o>]</span>
+</span></span><span class=line><span class=cl>向列表某位添加元素,如：pylist.append<span class=o>(</span>10<span class=o>)</span> <span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9, 10<span class=o>]</span>
+</span></span><span class=line><span class=cl>直接将列表赋值给一个新变量copyList,那么这时copyList和pylist都指向的是同一个东西
+</span></span><span class=line><span class=cl>修改copyList，那么pylist也会收到影响，如：copyList.append<span class=o>(</span>1234<span class=o>)</span>
+</span></span><span class=line><span class=cl>copyList-&gt; <span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl>pylist-&gt; <span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl>切片赋值给一个新变量,newList<span class=o>=</span>pylist<span class=o>[</span>:<span class=o>]</span>,那newList就是-&gt; <span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl>这时候再操作newList就和pylist无关了,如：newList<span class=o>[</span>0<span class=o>]=</span><span class=m>1111</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>11111, 2, 3, 4, 5, 7, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>999, 2, 3, 4, 5, 7, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl>为切片赋值，可以改变列表的大小，甚至清空列表,如：pylist<span class=o>[</span>3:6<span class=o>]=[</span>999,888<span class=o>]</span>-&gt; <span class=o>[</span>999, 2, 3, 999, 888, 8, 9, 10, 1234<span class=o>]</span>
+</span></span><span class=line><span class=cl>直接给切片赋值一个空列表，可以清空列表,如：pylist<span class=o>[</span>:<span class=o>]=[]</span>-&gt; <span class=o>[]</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以看到，对于一个简单的练习Demo，可以连入口都不用写；直接写你想写的，这种低束缚，对于我只是想写一些小项目的人来说，确实很有吸引力。今天先到这里，Night！</p></section><footer class=article-footer><section class=article-tags><a href=/tags/python%E5%9F%BA%E7%A1%80/>Python基础</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><script src=https://giscus.app/client.js data-repo=bigbosscyb/bigbosscyb.github.io data-repo-id=R_kgDOO59wIQ data-category=Announcements data-category-id=DIC_kwDOO59wIc4CrWIR data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 bigbosscyb</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
