@@ -5,7 +5,7 @@ title = '使用vscode开发c/c++'
 
 author = "bigbosscyb"
 
-description = "Guide how to use Hugo"
+description = "Vscode 配置c/c++开发环境"
 categories = [
     "vscode","c","c++"
 ]
