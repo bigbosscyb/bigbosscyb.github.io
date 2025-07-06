@@ -40,7 +40,7 @@ tags = [
 
 从网上找到了一个文章介绍mingw各个版本的区别
 
-![img](https://i-blog.csdnimg.cn/blog_migrate/86edc1025f3fe2b4d0423e952e4a30a7.png#pic_center)
+![mingw各个版本qu'bie](https://picture.939826.xyz/pictures/img/86edc1025f3fe2b4d0423e952e4a30a7.png)
 
 参考：[【c/cpp 开发工具】MingGW 各版本区别及安装说明]([【c/cpp 开发工具】MingGW 各版本区别及安装说明_mingw sjlj seh-CSDN博客](https://blog.csdn.net/qq_29856169/article/details/119380663))
 
