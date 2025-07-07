@@ -223,7 +223,7 @@ collect2.exe: error: ld returned 1 exit status
 
 以上步骤直接放到下面录屏中：
 
-![配置cpp](https://picture.939826.xyz/pictures/img/配置cpp.gif)
+![cpp配置v2](https://picture.939826.xyz/pictures/img/cpp配置v2.gif)
 
 注意两点：
 
