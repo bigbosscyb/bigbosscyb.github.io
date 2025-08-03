@@ -1,6 +1,6 @@
 +++
 date = '2025-08-03T08:38:22+08:00'
-draft = true
+draft = false
 title = 'typora写博客时使用自己的图床'
 
 author = "bigbosscyb"
