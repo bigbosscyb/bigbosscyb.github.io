@@ -206,6 +206,12 @@ menu:
           params:
               icon: brand-bilibili
 
+        - identifier: cnblogs
+          name: cnblogs
+          url: https://www.cnblogs.com/bigbosscyb
+          params:
+              icon: brand-cnblogs
+
 related:
     includeNewer: true
     threshold: 60
