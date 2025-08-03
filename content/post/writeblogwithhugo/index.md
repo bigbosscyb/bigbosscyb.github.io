@@ -193,7 +193,7 @@ jobs:
 - 创建一篇新的博客
 
 ```
-hugo new conten post/testblog/index.md
+hugo new content post/testblog/index.md
 ```
 
 使用编辑器打开该目录下的index.md文件，编辑好博客内容后。
