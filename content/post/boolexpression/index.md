@@ -5,7 +5,7 @@ title = 'c语言 表达式'
 
 author = "bigbosscyb"
 
-description = "博客描述"
+description = "一眼看上去没毛病的代码"
 
 categories = [
     "c","c++"
