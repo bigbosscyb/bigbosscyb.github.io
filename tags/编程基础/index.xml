@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程基础 on bigbosscyb</title><link>https://bigbosscyb.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</link><description>Recent content in 编程基础 on bigbosscyb</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>bigbosscyb</copyright><lastBuildDate>Sat, 09 Aug 2025 10:13:43 +0800</lastBuildDate><atom:link href="https://bigbosscyb.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml"/><item><title>浮点数的存储方式</title><link>https://bigbosscyb.github.io/p/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/</link><pubDate>Sat, 09 Aug 2025 10:13:43 +0800</pubDate><guid>https://bigbosscyb.github.io/p/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/</guid><description>&lt;h3 id="计算机中浮点数的存储方式">计算机中浮点数的存储方式
+&lt;/h3>&lt;p>在计算机中浮点数采用科学记数法&lt;/p>
+&lt;p>float 4个字节 32位 从高到低依次是：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>31&lt;/th>
+&lt;th>30-23&lt;/th>
+&lt;th>22-0&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>符号位 0或1&lt;/td>
+&lt;td>指数位8位&lt;/td>
+&lt;td>小数部分23位&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>举例：十进制的小数20.1如何转成计算机中的存储形式（二进制）呢？&lt;/p>
+&lt;p>步骤：&lt;/p>
+&lt;ul>
+&lt;li>整数部分和小数部分分别转成二进制
+&lt;ul>
+&lt;li>整数部分转二进制：除2取余，拿整数部分除2，每次操作记下余数，然后拿商继续除2，直到商为0；最后将每一步求得的余数倒叙排列。&lt;/li>
+&lt;li>小数部分转二进制：乘2取整，拿小数部分即0.xxx乘2，每次操作结果留整数部分，接下来继续拿小数部分乘2，直到小数部分为0；最后将每步求得的整数部分正序排列。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>移位成标准的科学记数法，即：&lt;/li>
+&lt;/ul>
+$$
+a*10^b (1&lt;=a&lt;=10)
+$$&lt;ul>
+&lt;li>让指数+127&lt;/li>
+&lt;li>取小数部分位前23位，不足23位后面补0，超过23位只取前23位&lt;/li>
+&lt;/ul>
+&lt;p>实战：&lt;/p>
+&lt;h4 id="分别将整数和小数部分转成二进制">分别将整数和小数部分转成二进制
+&lt;/h4>&lt;p>对于20转二进制：&lt;/p>
+&lt;ul>
+&lt;li>20/2 商10 余0&lt;/li>
+&lt;li>10/2 商5 余0&lt;/li>
+&lt;li>5/2 商2 余1&lt;/li>
+&lt;li>2/2 商1 余0&lt;/li>
+&lt;li>1/2 商0 余1 🔚&lt;/li>
+&lt;/ul>
+&lt;p>所以二进制存储形式：10100&lt;/p>
+&lt;p>对于0.1转二进制&lt;/p>
+&lt;ul>
+&lt;li>0.1*2 得0.2 整数部分0 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>0.2*2 得0.4 整数部分0 接下来拿小数部分0.4继续乘2&lt;/li>
+&lt;li>0.4*2 得0.8 整数部分0 接下来拿小数部分0.8继续乘2&lt;/li>
+&lt;li>0.8*2 得1.6 整数部分1 接下来拿小数部分0.6继续乘2&lt;/li>
+&lt;li>0.6*2 得1.2 整数部分1 接下来拿小数部分0.2继续乘2&lt;/li>
+&lt;li>可以看到已经开始无限循环了 下面的计算省略&lt;/li>
+&lt;/ul>
+&lt;p>所以0.1转成二进制，是一个无限循环小数，即：00011001100110011001100&amp;hellip;..&lt;/p>
+&lt;h4 id="移位成标准记数法">移位成标准记数法
+&lt;/h4>&lt;p>即：10100. 00011001100110011001100110011&amp;hellip;. * 2^0&lt;/p>
+&lt;p>变成：1. 0100 00011001100110011001100110011&amp;hellip;*2^4&lt;/p>
+&lt;h4 id="指数部分处理">指数部分处理
+&lt;/h4>&lt;p>4+127=131 ,131转二进制，10000011&lt;/p>
+&lt;p>小数部分取前23位，不够的末尾补0，超出的截断&amp;ndash;&lt;strong>这也就是浮点数存在误差的由来&lt;/strong>&lt;/p>
+&lt;p>01000001100110011001101（最后这个1是四舍五入来的）&lt;/p>
+&lt;h4 id="整合最后结果">整合最后结果
+&lt;/h4>&lt;p>0（符号位）10000011（指数位）01000001100110011001101（小数位）
+&lt;code>0 10000011 01000001100110011001101&lt;/code>&lt;/p>
+&lt;p>转换成16进制：&lt;/p>
+&lt;p>转换为十六进制（每 4 位一组）：
+&lt;code>0100 0001 1010 0000 1100 1100 1100 1101&lt;/code> → &lt;strong>0x41A0CCCD&lt;/strong>&lt;/p>
+&lt;h4 id="在编译器中验证">在编译器中验证
+&lt;/h4>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250809113926269.png" alt="image-20250809113926269" style="zoom:50%;" />
+&lt;p>由于是小端存储，所以我们的计算结果其实是对的上的。关于大小端可以看我的这篇博客：&lt;a class="link" href="https://www.cnblogs.com/bigbosscyb/p/18487726" target="_blank" rel="noopener"
+>C 大端存储与小端存储&lt;/a>&lt;/p>
+&lt;h3 id="参考">参考：
+&lt;/h3>&lt;p>&lt;a class="link" href="https://www.sojson.com/hexconvert.html" target="_blank" rel="noopener"
+>在线进制转换工具&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://blog.csdn.net/aicengege/article/details/49559491" target="_blank" rel="noopener"
+>0.5转换成二进制&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.runoob.com/w3cnote/decimal-decimals-are-converted-to-binary-fractions.html" target="_blank" rel="noopener"
+>十进制小数转化为二进制小数&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://blog.csdn.net/qq_46284844/article/details/122637358" target="_blank" rel="noopener"
+>浮点数的十进制和二进制转换（详细例子解答）&lt;/a>&lt;/p></description></item><item><title>c语言 表达式</title><link>https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link><pubDate>Wed, 06 Aug 2025 08:42:20 +0800</pubDate><guid>https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid><description>&lt;h3 id="关系表达式结果要么0-要么1">关系表达式结果要么0 要么1
+&lt;/h3>&lt;p>&lt;strong>警惕陷阱&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1225&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="c1">//a这里表示一个变量可能是-1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="mi">1&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因为从左到右 1和a比较 为假结果为0 为真的话结果为1；所以不管为真还是为假，结果再与10相比，都为真。&lt;/p>
+&lt;h3 id="在c语言中0表示假非0表示真通常为1">在c语言中0表示假，非0表示真(通常为1)
+&lt;/h3></description></item></channel></rss>
