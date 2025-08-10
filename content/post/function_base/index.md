@@ -205,7 +205,7 @@ y的地址 `0x000000016b66b498`
 
 #### 函数参数传递方式之：地址传递
 
-将a、b的地址传递给x、y；通过`*x`和`*y` 操作指定地址上的内存，达到让函数外部的a、b值交换的目的。
+将a、b的地址传递给x、y；通过`*x`和`*y` 操作指定地址上的内存，就等于在操作函数外部的a、b。
 
 ```c
 #include <stdio.h>
@@ -223,11 +223,11 @@ int main(void) {
 }
 
 void Swap(int *x, int *y) {
-    printf("in swap function begin,x is :%d ;y is: %d \n", *x, *y);
+    printf("in swap function begin,*x is :%d ;*y is: %d \n", *x, *y);
     int temp = *x;
     *x = *y;
     *y = temp;
-    printf("in swap function end,x is :%d ;y is: %d \n", *x, *y);
+    printf("in swap function end,*x is :%d ;*y is: %d \n", *x, *y);
 }
 
 ```
@@ -244,8 +244,8 @@ x存储的值是 `0x000000016cfcb4c8` 这个地址指向的就是变量a；y存�
 
 ```bash
 a is :1 ;b is: 2 
-in swap function begin,x is :1 ;y is: 2 
-in swap function end,x is :2 ;y is: 1 
+in swap function begin,*x is :1 ;*y is: 2 
+in swap function end,*x is :2 ;*y is: 1 
 after swap ,a is :2 ;b is: 1 
 ```
 
