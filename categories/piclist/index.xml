@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Piclist on bigbosscyb</title><link>https://bigbosscyb.github.io/categories/piclist/</link><description>Recent content in Piclist on bigbosscyb</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>bigbosscyb</copyright><lastBuildDate>Sun, 03 Aug 2025 08:38:22 +0800</lastBuildDate><atom:link href="https://bigbosscyb.github.io/categories/piclist/index.xml" rel="self" type="application/rss+xml"/><item><title>typora写博客时使用自己的图床</title><link>https://bigbosscyb.github.io/p/typora%E5%86%99%E5%8D%9A%E5%AE%A2%E6%97%B6%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</link><pubDate>Sun, 03 Aug 2025 08:38:22 +0800</pubDate><guid>https://bigbosscyb.github.io/p/typora%E5%86%99%E5%8D%9A%E5%AE%A2%E6%97%B6%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</guid><description>&lt;p>使用 Cloudflare 的免费的 R2 对象存储搭建图床、然后在 piclist 工具中进行 R2 存储桶实现图片的上传、删除、最后在 md 文档编辑器 typora 中关联 piclist，实现博客中的图片自动上传至图床中。&lt;/p>
+&lt;h3 id="piclist-配置">piclist 配置
+&lt;/h3>&lt;p>下面是 Piclist 的介绍&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803114557621.png" alt="image-20250803114557621" style="zoom:50%;" />
+&lt;h4 id="下载配置">下载配置
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://piclist.cn/app.html#mac" target="_blank" rel="noopener"
+>下载地址&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>由于我使用的是 Cloudflare 的 R2 对象存储做图床，而 R2 走的是 S3 协议，所以这里介绍 Piclist 自带&lt;a class="link" href="https://piclist.cn/configure.html#%E5%86%85%E7%BD%AEaws-s3" target="_blank" rel="noopener"
+>Aws S3&lt;/a>插件进行配置,&lt;strong>不需要再像 picgo 那样额外下载 s3 插件了&lt;/strong>跟着链接中的教程输入&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>accessKeyID/api 令牌&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>secretAccessKey/api 访问密钥&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bucketName/存储桶名称&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>uploadPath/上传路径&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>endpoint/自定义终端节点&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>urlPrefix/自定义域名&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>其余未提及的保持默认即可。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803121331910.png" alt="image-20250803121331910" style="zoom:50%;" />
+&lt;h4 id="测试是否成功">测试是否成功
+&lt;/h4>&lt;p>使用截图工具截一张图，从到 PicList 的&amp;quot;上传&amp;quot;菜单中，选择从&amp;quot;剪切板上传&amp;quot;&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803123040126.png" alt="image-20250803123040126" style="zoom:50%;" />
+&lt;h3 id="typora-配置">typora 配置
+&lt;/h3>&lt;p>在 typora 中打开&amp;quot;格式&amp;quot;-&amp;ldquo;图像&amp;rdquo;-&amp;ldquo;全局图像设置&amp;rdquo;。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803123324384.png" alt="image-20250803123324384" style="zoom:50%;" />
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803123725152.png" alt="image-20250803123725152" style="zoom:50%;" />
+&lt;p>最后，当文章写完之后，可以一键将本地图片上传至图床中。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250803123931892.png" alt="image-20250803123931892" style="zoom:50%;" />
+&lt;p>以上便 typora 使用图床的相关配置。&lt;/p></description></item></channel></rss>
