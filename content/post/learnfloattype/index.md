@@ -1,7 +1,7 @@
 +++
 date = '2025-08-09T10:13:43+08:00'
 draft = false
-title = '浮点数的存储方式'
+title = 'c语言 浮点数的存储方式'
 
 author = "bigbosscyb"
 
