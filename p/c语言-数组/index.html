@@ -1,0 +1,261 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="数组初识"><title>c语言 数组</title>
+<link rel=canonical href=https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E6%95%B0%E7%BB%84/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="c语言 数组"><meta property='og:description' content="数组初识"><meta property='og:url' content='https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E6%95%B0%E7%BB%84/'><meta property='og:site_name' content='bigbosscyb'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='编程基础'><meta property='article:published_time' content='2025-08-17T07:56:19+08:00'><meta property='article:modified_time' content='2025-08-17T07:56:19+08:00'><meta name=twitter:title content="c语言 数组"><meta name=twitter:description content="数组初识"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu4248561383974080784.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>bigbosscyb</a></h1><h2 class=site-description>分享知识心得</h2></div></header><ol class=menu-social><li><a href=https://space.bilibili.com/301876846 target=_blank title=BiliBili rel=me><svg class="icon icon-tabler icon-tabler-brand-bilibili" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 014-4h10a4 4 0 014 4v6a4 4 0 01-4 4H7a4 4 0 01-4-4v-6z"/><path d="M8 3l2 3"/><path d="M16 3l-2 3"/><path d="M9 13v-2"/><path d="M15 11v2"/></svg></a></li><li><a href=https://www.cnblogs.com/bigbosscyb target=_blank title=cnblogs rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li><li><a href=https://github.com/bigbosscyb target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#数组>数组</a></li><li><a href=#一维数组创建>一维数组创建</a></li><li><a href=#一维数组初始化>一维数组初始化</a><ol><li><a href=#完全初始化>完全初始化</a></li><li><a href=#不完全初始化>不完全初始化</a></li><li><a href=#不指定数组大小>不指定数组大小</a></li></ol></li><li><a href=#字符数组与字符串>字符数组与字符串</a></li><li><a href=#一维数组的使用>一维数组的使用</a></li><li><a href=#二维数组>二维数组</a></li><li><a href=#二维数组初始化>二维数组初始化</a><ol><li><a href=#完全初始化-1>完全初始化</a></li><li><a href=#不完全初始化-1>不完全初始化</a></li><li><a href=#使用一维数组初始化>使用一维数组初始化</a></li></ol></li><li><a href=#二维数组在内存中的分布>二维数组在内存中的分布</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/c/>C
+</a><a href=/categories/c++/>C++</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/c%E8%AF%AD%E8%A8%80-%E6%95%B0%E7%BB%84/>c语言 数组</a></h2><h3 class=article-subtitle>数组初识</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-08-17</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 6 分钟</time></div></footer></div></header><section class=article-content><h3 id=数组>数组</h3><ul><li>一群同类型元素组成的集合</li><li>在内存中连续排列</li><li>可以使用下标访问数组中的元素</li></ul><p>为什么要有数组，假如我需要1000个整数变量，难道需要一个变量一个变量创建么？引进数组来解决这个问题。</p><h3 id=一维数组创建>一维数组创建</h3><p>一维数组的格式 类型名 数组变量名[元素个数]</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=n>int_arr</span><span class=p>[</span><span class=mi>4</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=c1>// const int pp = 4;
+</span></span></span><span class=line><span class=cl><span class=c1>// int intarr[pp];//这种版本高的话(c99以后)才支持
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=一维数组初始化>一维数组初始化</h3><p>数组初始化：在创建数组时给数组赋值</p><h4 id=完全初始化>完全初始化</h4><p>标准的初始化形式，即使用和声明数组时指定的个数一致的元素给数组初始化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>input</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;c&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=c1>// char input2[3]={&#39;a&#39;,&#39;c&#39;,&#39;e&#39;,&#39;d&#39;};//初始化时个数可以短 但不可以长
+</span></span></span></code></pre></td></tr></table></div></div><p>初始化时，元素个数不能比数组长度长；否则编译报错。</p><h4 id=不完全初始化>不完全初始化</h4><p>初始化时，元素个数比数组的长度短</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>input4</span><span class=p>[</span><span class=mi>10</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;b&#39;</span><span class=p>,</span> <span class=sc>&#39;c&#39;</span><span class=p>};</span> <span class=c1>//不完全初始化 其余未被初始化的位置会被初始化成默认值
+</span></span></span></code></pre></td></tr></table></div></div><p>数组元素的值的情况：</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250817092222375.png loading=lazy alt=image-20250817092222375></p><p>前几个元素被正常赋值；后几个元素被系统初始化成该类型的默认值；</p><p><strong>可以利用不完全初始化这一特点，将数组元素全部初始化成默认值，如char类型元素组成的数组，初始化成全0</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>input5</span><span class=p>[</span><span class=mi>10</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span> <span class=c1>//通过此特性，将数组初始化成全0
+</span></span></span></code></pre></td></tr></table></div></div><p><img src=https://picture.939826.xyz/pictures/img/image-20250817092533162.png loading=lazy alt=image-20250817092533162></p><h4 id=不指定数组大小>不指定数组大小</h4><p>当数组创建时不指定长度，则初始化时给定多少个元素，那么数组的长度就是多长。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>input3</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;l&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://picture.939826.xyz/pictures/img/image-20250817092744122.png loading=lazy alt=image-20250817092744122></p><h3 id=字符数组与字符串>字符数组与字符串</h3><p>下面这两种形式数组的区别：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span> <span class=n>input3</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;l&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>};</span> <span class=c1>//不指定数组大小的初始化
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>char</span> <span class=n>str</span><span class=p>[]</span> <span class=o>=</span> <span class=s>&#34;ali&#34;</span><span class=p>;</span><span class=c1>//使用字符串字面量初始化字符数组
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//它与input3有什么区别?
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//空间不同：字符串自带一个\0字符；所以str在空间占用上比input3大
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//strlen函数求字符串长度结果不同：因为strlen函数遇到str数组中的\0字符会结束 然后返回除\0外还有多少个字符
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//而strlen处理字符数组input3时，什么时候遇到\0字符是未知的，所以得到的结果是随机的
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>size_t</span> <span class=n>size_str</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>str</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>size_t</span> <span class=n>size_input3</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>input3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;str size is:%d,input3 size is:%d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>size_str</span><span class=p>,</span> <span class=n>size_input3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>size_t</span> <span class=n>len_str</span> <span class=o>=</span> <span class=nf>strlen</span><span class=p>(</span><span class=n>str</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>size_t</span> <span class=n>len_input3</span> <span class=o>=</span> <span class=nf>strlen</span><span class=p>(</span><span class=n>input3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;str strlen is:%d,input3 str len is:%d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>len_str</span><span class=p>,</span> <span class=n>len_input3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>输出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>str size is:4,input3 size is:3 
+</span></span><span class=line><span class=cl>str strlen is:3,input3 str len is:9 //input3由于没有字符串结束符<span class=se>\0</span>，所以strlen结果是随机的
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://picture.939826.xyz/pictures/img/image-20250817094121833.png loading=lazy alt=image-20250817094121833></p><ul><li>所占据的空间不同，使用sizeof操作符，求两个数组的大小，显然后者的长度要大</li><li>strlen函数求字符串长度，结果不同：strlen函数从第一个字符开始，看到str数组中的\0字符返回，除\0外共多少个字符个数，就是字符串的长度；对于字符数组input3来说，由于其中并没有包含\0字符，所以其结果是随机的未知的</li></ul><p><strong>后来有人告诉我们，strlen这样理解：就好比你朗读课文时句号你不会读出来一样。在计算字符串长度时strlen只把<code>\0</code>当标记，不会把它统计入长度的</strong></p><h3 id=一维数组的使用>一维数组的使用</h3><ul><li>按索引访问元素：数组名[索引值] 就可以访问到数组中的指定位置的元素</li><li>数组元素个数计算：用sizeof求数组总共占用的空间、用sizeof(arr[0])求数组中一个元素占用的空间、最后用总空间除以单个元素的空间得到数组元素个数。</li></ul><p>如何修改数组中某个位置的元素的值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>char input[3] = {&#39;a&#39;, &#39;c&#39;, &#39;e&#39;};
+</span></span><span class=line><span class=cl>size_t size = sizeof(input); //sizeof可以计算出数组所占空间大小
+</span></span><span class=line><span class=cl>size_t size_item = sizeof(input[0]); //计算数组中第一个元素所占空间大小
+</span></span><span class=line><span class=cl>size_t count = size / size_item;
+</span></span><span class=line><span class=cl>printf(&#34;数组修改前：\n&#34;);
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>for (size_t i = 0; i &lt; count; i++) {
+</span></span><span class=line><span class=cl>    printf(&#34;index of %d,value is %c \n&#34;, i, input[i]);
+</span></span><span class=line><span class=cl>    char item = input[i];
+</span></span><span class=line><span class=cl>    item = &#39;\0&#39;;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>printf(&#34;数组修改后：\n&#34;);
+</span></span><span class=line><span class=cl>for (size_t i = 0; i &lt; count; i++) {
+</span></span><span class=line><span class=cl>    printf(&#34;index of %d,value is %c \n&#34;, i, input[i]);
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p>输出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>数组修改前：
+</span></span><span class=line><span class=cl>index of 0,value is a 
+</span></span><span class=line><span class=cl>index of 1,value is c 
+</span></span><span class=line><span class=cl>index of 2,value is e 
+</span></span><span class=line><span class=cl>数组修改后：
+</span></span><span class=line><span class=cl>index of 0,value is a 
+</span></span><span class=line><span class=cl>index of 1,value is c 
+</span></span><span class=line><span class=cl>index of 2,value is e 
+</span></span></code></pre></td></tr></table></div></div><p>可以看出上面的修改数组的方式是错误❌的；item在初始化后便和数组元素没有关系了(下图从内存地址可以看出)；所以修改item并不会对数组中的元素造成任何影响。</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250817100133328.png loading=lazy alt=image-20250817100133328></p><p><img src=https://picture.939826.xyz/pictures/img/image-20250817100229058.png loading=lazy alt=image-20250817100229058></p><p>所以正确的修改数组元素的方式应该是：要么<strong>使用指针</strong>，要么<strong>直接使用下标</strong>进行修改。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>input</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;c&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kt>size_t</span> <span class=n>size</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>input</span><span class=p>);</span> <span class=c1>//sizeof可以计算出数组所占空间大小
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>size_t</span> <span class=n>size_item</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>input</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span> <span class=c1>//计算数组中第一个元素所占空间大小
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>size</span> <span class=o>/</span> <span class=n>size_item</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;数组修改前：</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=p>(</span><span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;index of %d,value is %c </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>input</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;请输入三个字符串，输入完成后按下回车键确认</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=p>(</span><span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%c&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>input</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;数组修改后：</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=p>(</span><span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;index of %d,value is %c </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>input</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>数组修改前：
+</span></span><span class=line><span class=cl>index of 0,value is a 
+</span></span><span class=line><span class=cl>index of 1,value is c 
+</span></span><span class=line><span class=cl>index of 2,value is e 
+</span></span><span class=line><span class=cl>请输入三个字符串，输入完成后按下回车键确认
+</span></span><span class=line><span class=cl>hhh
+</span></span><span class=line><span class=cl>数组修改后：
+</span></span><span class=line><span class=cl>index of 0,value is h 
+</span></span><span class=line><span class=cl>index of 1,value is h 
+</span></span><span class=line><span class=cl>index of 2,value is h
+</span></span></code></pre></td></tr></table></div></div><ul><li>使数组不可被修改</li></ul><p>在数组声明时，前面加上const，那么数组中的每一个元素就变成了只读量，只能访问不能修改。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>const</span> <span class=kt>int</span> <span class=n>intarr</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;c&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=n>intarr</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>编译错误：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>/Users/a77/Code/clangbasedemo/main.c:6:15: error: cannot assign to variable <span class=s1>&#39;intarr&#39;</span> with const-qualified <span class=nb>type</span> <span class=s1>&#39;const int[3]&#39;</span>
+</span></span><span class=line><span class=cl>    intarr<span class=o>[</span>0<span class=o>]</span> <span class=o>=</span> 1<span class=p>;</span>
+</span></span><span class=line><span class=cl>    ~~~~~~~~~ ^
+</span></span></code></pre></td></tr></table></div></div><p>由此，我们联想到 <strong>在一个函数中，若不希望形参被修改，可以给形参加上const修饰，起到保护形参的作用</strong>。</p><ul><li>一维数组在内存中的存储</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>int intarr[3] = {&#39;a&#39;, &#39;c&#39;, &#39;e&#39;};
+</span></span><span class=line><span class=cl>size_t size = sizeof(intarr); //sizeof可以计算出数组所占空间大小
+</span></span><span class=line><span class=cl>size_t size_item = sizeof(intarr[0]); //计算数组中第一个元素所占空间大小
+</span></span><span class=line><span class=cl>size_t count = size / size_item;
+</span></span><span class=line><span class=cl>for (size_t i = 0; i &lt; count; i++) {
+</span></span><span class=line><span class=cl>    printf(&#34;index of %d,address is %p \n&#34;, i, &amp;intarr[i]);
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p>输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>index of 0,address is 0x16d8534b8 
+</span></span><span class=line><span class=cl>index of 1,address is 0x16d8534bc 
+</span></span><span class=line><span class=cl>index of 2,address is 0x16d8534c0
+</span></span></code></pre></td></tr></table></div></div><p>a0和a1相差4；为什么？因为一个int值在内存中占4个字节。（<strong>回忆旧知识：内存中最小单位是字节，故地址与地址之间差值最小是1字节</strong>）</p><ul><li>数组越界访问</li></ul><p>什么是越界访问：下标是不在数组元素范围内。如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=n>arr</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>};</span> <span class=kt>int</span> <span class=n>item</span><span class=o>=</span> <span class=n>arr</span><span class=p>[</span><span class=mi>99</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><p>数组越界访问，编译器是允许的；因为编译器足够信任程序员，认为程序员不会做出越界访问这种事情。另外不进行这种检查，还可以提高运行效率。</p><h3 id=二维数组>二维数组</h3><p>比一维数组多了一个[]；</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=c1>//格式 类型名 数组名[m][n]
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>char</span> <span class=n>list</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><p>从左往右 list先与[3]结合，所以list是一个由三个元素组成的数组；然后去掉list[3]剩下的就是元素类型；可以看到组成list[3]的每个元素都是一个数组。这个数组长度是4。</p><p><strong>还可以将二维数组看成3行4列的网格</strong></p><h3 id=二维数组初始化>二维数组初始化</h3><h4 id=完全初始化-1>完全初始化</h4><p>3*4=12，所以共需要12个数来初始化二维数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>list</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;h&#39;</span><span class=p>,</span> <span class=sc>&#39;u&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;l&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;v&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>,</span> <span class=sc>&#39;p&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>,</span> <span class=sc>&#39;n&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>来看数组的情况：</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250817105544318.png loading=lazy alt=image-20250817105544318></p><h4 id=不完全初始化-1>不完全初始化</h4><p>和一维数组一样，只要我们给定的元素个数不足以填充数组长度；那么这种初始化方式就称为不完全初始化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>list1</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;h&#39;</span><span class=p>,</span> <span class=sc>&#39;u&#39;</span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>看数组内元素的情况：</p><p><img src=https://picture.939826.xyz/pictures/img/image-20250817105832604.png loading=lazy alt=image-20250817105832604></p><p>与一维数组处理一致，未赋值的元素，会被默认初始化成该元素类型的默认值；</p><h4 id=使用一维数组初始化>使用一维数组初始化</h4><p>二维数组中，是由几个一维数组组成；所以在此例中使用三个长度为4的一维数组，即可完成初始化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>list2</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=p>{{</span><span class=sc>&#39;h&#39;</span><span class=p>,</span> <span class=sc>&#39;u&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>},</span> <span class=p>{</span><span class=sc>&#39;l&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;v&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>},</span> <span class=p>{</span><span class=sc>&#39;p&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>,</span> <span class=sc>&#39;n&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>}};</span>
+</span></span></code></pre></td></tr></table></div></div><p>也可以这样</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>list3</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=p>{{</span><span class=sc>&#39;h&#39;</span><span class=p>},</span> <span class=p>{</span><span class=sc>&#39;l&#39;</span><span class=p>}};</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=二维数组在内存中的分布>二维数组在内存中的分布</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span> <span class=n>list</span><span class=p>[</span><span class=mi>3</span><span class=p>][</span><span class=mi>4</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=sc>&#39;h&#39;</span><span class=p>,</span> <span class=sc>&#39;u&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;l&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;v&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>,</span> <span class=sc>&#39;p&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>,</span> <span class=sc>&#39;n&#39;</span><span class=p>,</span> <span class=sc>&#39;g&#39;</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kt>size_t</span> <span class=n>row_size</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>list</span><span class=p>)</span> <span class=o>/</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>list</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=kt>size_t</span> <span class=n>col_size</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>list</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span> <span class=o>/</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>list</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=p>(</span><span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>row_size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>col_size</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;position is :(%d,%d),value is %c,address is %p</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>j</span><span class=p>,</span> <span class=n>list</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=o>&amp;</span><span class=n>list</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>position is :<span class=o>(</span>0,0<span class=o>)</span>,value is h,address is 0x16f2234b8
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>0,1<span class=o>)</span>,value is u,address is 0x16f2234b9
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>0,2<span class=o>)</span>,value is g,address is 0x16f2234ba
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>0,3<span class=o>)</span>,value is o,address is 0x16f2234bb
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>1,0<span class=o>)</span>,value is l,address is 0x16f2234bc
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>1,1<span class=o>)</span>,value is o,address is 0x16f2234bd
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>1,2<span class=o>)</span>,value is v,address is 0x16f2234be
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>1,3<span class=o>)</span>,value is e,address is 0x16f2234bf
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>2,0<span class=o>)</span>,value is p,address is 0x16f2234c0
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>2,1<span class=o>)</span>,value is i,address is 0x16f2234c1
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>2,2<span class=o>)</span>,value is n,address is 0x16f2234c2
+</span></span><span class=line><span class=cl>position is :<span class=o>(</span>2,3<span class=o>)</span>,value is g,address is 0x16f2234c3
+</span></span></code></pre></td></tr></table></div></div><p>可以看到地址是连续的，<strong>所以无论是几维数组，在内存中元素都是连续存储的。数组的维度只是我们逻辑上的，计算机上一直线性顺序存储。</strong></p></section><footer class=article-footer><section class=article-tags><a href=/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/c%E8%AF%AD%E8%A8%80-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/><div class=article-details><h2 class=article-title>c语言 浮点数的存储方式</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=bigbosscyb/bigbosscyb.github.io data-repo-id=R_kgDOO59wIQ data-category=Announcements data-category-id=DIC_kwDOO59wIc4CrWIR data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 bigbosscyb</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

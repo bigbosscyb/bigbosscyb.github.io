@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vscode on bigbosscyb</title><link>https://bigbosscyb.github.io/categories/vscode/</link><description>Recent content in Vscode on bigbosscyb</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>bigbosscyb</copyright><lastBuildDate>Sun, 06 Jul 2025 23:38:10 +0800</lastBuildDate><atom:link href="https://bigbosscyb.github.io/categories/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>使用vscode开发c/c++</title><link>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91c/c-/</link><pubDate>Sun, 06 Jul 2025 23:38:10 +0800</pubDate><guid>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91c/c-/</guid><description>&lt;h3 id="整体流程">整体流程
+&lt;/h3>&lt;ul>
+&lt;li>安装vscode&lt;/li>
+&lt;li>下载mingw&lt;/li>
+&lt;li>配置mingw&lt;/li>
+&lt;li>下载c/c++插件&lt;/li>
+&lt;li>使用vscode编写c/c++代码
+&lt;ul>
+&lt;li>设置编译选项&lt;/li>
+&lt;li>配置生成任务&lt;/li>
+&lt;li>启动项配置&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="vscode的安装">VScode的安装
+&lt;/h3>&lt;p>官网：&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+>Visual Studio Code - Code Editing. Redefined&lt;/a>&lt;/p>
+&lt;p>非官方加速站点：&lt;/p>
+&lt;h3 id="mingw的安装">Mingw的安装
+&lt;/h3>&lt;p>官网：[x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z](&lt;a class="link" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains" target="_blank" rel="noopener"
+>https://sourceforge.net/projects/mingw-w64/files/Toolchains&lt;/a> targetting Win64/Personal Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z/download)&lt;/p>
+&lt;p>非官方加速站点：&lt;a class="link" href="https://gitee.com/link?target=https%3A%2F%2Fmbd.pub%2Fo%2Fbread%2FZpyUkp9q" target="_blank" rel="noopener"
+>mingw64-x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z&lt;/a>&lt;/p>
+&lt;p>从网上找到了一个文章介绍mingw各个版本的区别&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/86edc1025f3fe2b4d0423e952e4a30a7.png"
+loading="lazy"
+alt="mingw各个版本qubie"
+>&lt;/p>
+&lt;p>参考：[【c/cpp 开发工具】MingGW 各版本区别及安装说明](&lt;a class="link" href="https://blog.csdn.net/qq_29856169/article/details/119380663" target="_blank" rel="noopener"
+>【c/cpp 开发工具】MingGW 各版本区别及安装说明_mingw sjlj seh-CSDN博客&lt;/a>)&lt;/p>
+&lt;h3 id="配置mingw">配置mingw
+&lt;/h3>&lt;ul>
+&lt;li>解压：上一步下载好的压缩文件 建议直接将解压后的Mingw64文件夹直接剪切到C盘或者其它盘的根目录&lt;/li>
+&lt;li>设置环境变量：将mingw的bin目录添加到环境变量中&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707002700359.png"
+loading="lazy"
+alt="image-20250707002700359"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707002832665.png"
+loading="lazy"
+alt="image-20250707002832665"
+>&lt;/p>
+&lt;p>打开cmd窗口，输入gcc &amp;ndash;version 输出类似如下信息，则代表mingw配置完成&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707003011994.png"
+loading="lazy"
+alt="image-20250707003011994"
+>&lt;/p>
+&lt;h3 id="cc插件">c/c++插件
+&lt;/h3>&lt;p>在Vscode的扩展中搜索c/c++，点击安装即可&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707003214208.png"
+loading="lazy"
+alt="image-20250707003214208"
+>&lt;/p>
+&lt;h3 id="使用vscode编写cc代码">使用vscode编写c/c++代码
+&lt;/h3>&lt;ul>
+&lt;li>本地磁盘创建一个用于存放c/c++代码的目录&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707003459777.png"
+loading="lazy"
+alt="image-20250707003459777"
+>&lt;/p>
+&lt;ul>
+&lt;li>使用vscode打开某个代码目录&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707003721349.png"
+loading="lazy"
+alt="image-20250707003721349"
+>&lt;/p>
+&lt;h4 id="设置编译选项">设置编译选项
+&lt;/h4>&lt;p>Ctrl+Shift+P 打开命令面板&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004119434.png"
+loading="lazy"
+alt="image-20250707004119434"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004147751.png"
+loading="lazy"
+alt="image-20250707004147751"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004303057.png"
+loading="lazy"
+alt="image-20250707004303057"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004424782.png"
+loading="lazy"
+alt="image-20250707004424782"
+>&lt;/p>
+&lt;p>&lt;strong>注意：我这里默认的编译器路径是cl.exe，因为我安装了VS 2022，这个是vs的编译器，我们不使用这个路径！！！&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004458497.png"
+loading="lazy"
+alt="image-20250707004458497"
+>&lt;/p>
+&lt;p>配置完成后 .vscode文件夹下的配置如下：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707004552305.png"
+loading="lazy"
+alt="image-20250707004552305"
+>&lt;/p>
+&lt;h4 id="创建执行任务">创建执行任务
+&lt;/h4>&lt;p>设置完编译器之后，如何来编译c代码呢？需要创建执行任务，让Vscode知道如何执行编译(构建)任务。&lt;/p>
+&lt;ul>
+&lt;li>在顶部&amp;quot;终端&amp;quot;菜单下拉选项中选择，&amp;ldquo;配置任务&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707005251351.png"
+loading="lazy"
+alt="image-20250707005251351"
+>&lt;/p>
+&lt;ul>
+&lt;li>在新弹出的菜单中选择gcc编译器，生成配置文件&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707005311024.png"
+loading="lazy"
+alt="image-20250707005311024"
+>&lt;/p>
+&lt;ul>
+&lt;li>对tasks.json的解读&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707005611839.png"
+loading="lazy"
+alt="image-20250707005611839"
+>&lt;/p>
+&lt;h4 id="编译">编译
+&lt;/h4>&lt;ul>
+&lt;li>想要编译哪个文件就打开哪个文件&lt;/li>
+&lt;li>在顶部&amp;quot;终端&amp;quot;菜单的下拉选项中选择&amp;quot;运行生成任务&amp;quot;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707005947596.png"
+loading="lazy"
+alt="image-20250707005947596"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707010056956.png"
+loading="lazy"
+alt="image-20250707010056956"
+>&lt;/p>
+&lt;h4 id="执行">执行
+&lt;/h4>&lt;ul>
+&lt;li>在顶部&amp;quot;查看&amp;quot;菜单的下拉选项中选择&amp;quot;终端&amp;quot;选项&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707010311931.png"
+loading="lazy"
+alt="image-20250707010311931"
+>&lt;/p>
+&lt;ul>
+&lt;li>在下方新打开的终端工具中，输入./test.exe即可运行编译生成的程序&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707010438833.png"
+loading="lazy"
+alt="image-20250707010438833"
+>&lt;/p>
+&lt;h3 id="还想写其它代码">还想写其它代码
+&lt;/h3>&lt;h4 id="在本目录中新增了一个c文件">在本目录中新增了一个.c文件
+&lt;/h4>&lt;p>例如又新增了一个test2.c文件来跑另外一个demo&lt;/p>
+&lt;ul>
+&lt;li>要编译哪个文件就选中这个文件&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707081811152.png"
+loading="lazy"
+alt="image-20250707081811152"
+>&lt;/p>
+&lt;ul>
+&lt;li>Ctrl+Shift+B 运行生成任务&lt;/li>
+&lt;li>在终端工具中 输入./test2.exe即可运行&lt;/li>
+&lt;/ul>
+&lt;h4 id="在一个新的目录中编写代码">在一个新的目录中编写代码
+&lt;/h4>&lt;p>如下图新增了一个seconddemo文件夹，来写代码；如何快速完成?&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707082153600.png"
+loading="lazy"
+alt="image-20250707082153600"
+>&lt;/p>
+&lt;ul>
+&lt;li>vscode打开文件夹&lt;/li>
+&lt;li>将之前文件夹的.vscode文件夹拷贝到这个文件夹下&lt;/li>
+&lt;li>新建.c文件编写代码&lt;/li>
+&lt;li>终端&amp;ndash;&amp;gt;执行生成任务 完成编译&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>总之就是我们不必再从头进行环境配置！！！&lt;/strong>&lt;/p>
+&lt;h3 id="有多个c文件如何编译">有多个.c文件如何编译
+&lt;/h3>&lt;p>有多个.c文件，在hello.c文件中调用了util.c中的sub函数&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707231956132.png"
+loading="lazy"
+alt="image-20250707231956132"
+>&lt;/p>
+&lt;p>此时进行代码生成，会提示如下错误：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cmd /c chcp 65001&amp;gt;nul &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> D:/mingw64/bin/gcc.exe -fdiagnostics-color&lt;span class="o">=&lt;/span>always -g E:&lt;span class="se">\c&lt;/span>ppdemos&lt;span class="se">\s&lt;/span>econddemo&lt;span class="se">\h&lt;/span>ello.c -o E:&lt;span class="se">\c&lt;/span>ppdemos&lt;span class="se">\s&lt;/span>econddemo&lt;span class="se">\h&lt;/span>ello.exe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.5.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:&lt;span class="se">\U&lt;/span>sers&lt;span class="se">\4&lt;/span>8723&lt;span class="se">\A&lt;/span>ppData&lt;span class="se">\L&lt;/span>ocal&lt;span class="se">\T&lt;/span>emp&lt;span class="se">\c&lt;/span>cGODLI4.o: in &lt;span class="k">function&lt;/span> &lt;span class="sb">`&lt;/span>main&lt;span class="s1">&amp;#39;:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">E:/cppdemos/seconddemo/hello.c:9: undefined reference to `sub&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">collect2.exe: error: ld returned &lt;span class="m">1&lt;/span> &lt;span class="nb">exit&lt;/span> status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>我们如何能运行生成任务时，能将所有的C代码都进行编译、最后输出一个文件目.exe的可执行文件?&lt;/p>
+&lt;p>答案是：修改tasks.json文件&lt;/p>
+&lt;h4 id="改造tasksjson">改造tasks.json
+&lt;/h4>&lt;ul>
+&lt;li>修改args节点，-g参数：让编译器编译目录下所有的.c文件；&lt;/li>
+&lt;li>[可选]修改args节点，-o参数：让生成的输出文件，文件名是以工作目录文件夹名命名的exe文件；&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;version&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2.0.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;tasks&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;cppbuild&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;label&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;C/C++: gcc.exe 生成活动文件&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;command&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;D:/mingw64/bin/gcc.exe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;args&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;-fdiagnostics-color=always&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;-g&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;${workspaceFolder}\\*.c&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;-o&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;${workspaceFolder}\\${workspaceFolderBasename}.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;options&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;cwd&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;D:/mingw64/bin&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;problemMatcher&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;$gcc&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;group&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;build&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;detail&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;编译器: D:/mingw64/bin/gcc.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707232813419.png"
+loading="lazy"
+alt="image-20250707232813419"
+>&lt;/p>
+&lt;p>这样就可以正常编译和运行程序了。&lt;/p>
+&lt;h3 id="如何编译c代码">如何编译c++代码
+&lt;/h3>&lt;ul>
+&lt;li>新增一个.cpp结尾的文件&lt;/li>
+&lt;li>同上面.c文件的配置类似，需要设置编译选项、创建执行任务&lt;/li>
+&lt;/ul>
+&lt;h4 id="配置gexe为编译器">配置g++.exe为编译器
+&lt;/h4>&lt;h4 id="配置c源文件的任务信息">配置c++源文件的任务信息
+&lt;/h4>&lt;h4 id="编译c代码">编译c++代码
+&lt;/h4>&lt;p>以上步骤直接放到下面录屏中：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/cpp%e9%85%8d%e7%bd%aev2.gif"
+loading="lazy"
+alt="cpp配置v2"
+>&lt;/p>
+&lt;p>注意两点：&lt;/p>
+&lt;ul>
+&lt;li>配置g++.exe为编译器时，需要添加配置&lt;/li>
+&lt;li>配置任务时，需要打开.cpp文件后，点击&amp;quot;终端&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;配置任务&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h3 id="如何调试代码">如何调试代码
+&lt;/h3>&lt;p>以上只介绍了，如何编译代码和运行程序；在VsCode中想要调试，需要创建launch.json&lt;/p>
+&lt;h4 id="创建launchjson">创建launch.json
+&lt;/h4>&lt;p>点击左侧&amp;quot;调试&amp;quot;菜单，点击&amp;quot;创建launch.json文件&amp;quot;，在弹出的菜单中，选择&amp;quot;C++(GBD/LLDB)&amp;quot;&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707234910293.png"
+loading="lazy"
+alt="image-20250707234910293"
+>&lt;/p>
+&lt;p>点击添加配置按钮，在弹出菜单中选择&amp;quot;c/c++ (gdb) 启动&amp;quot;&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707235235809.png"
+loading="lazy"
+alt="image-20250707235235809"
+>&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250707235652667.png"
+loading="lazy"
+alt="image-20250707235652667"
+>&lt;/p>
+&lt;p>修改完成后launch.json内容如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用 IntelliSense 了解相关属性。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">// 悬停以查看现有属性的描述。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nt">&amp;#34;version&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0.2.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;configurations&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;(gdb) 启动&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;cppdbg&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;request&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;launch&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;program&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;${workspaceFolder}\\${workspaceFolderBasename}.exe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="c1">//这里修改后保持和tasks.json中的-o参数一致
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nt">&amp;#34;args&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;stopAtEntry&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;cwd&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;${fileDirname}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;environment&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;externalConsole&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;MIMode&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;gdb&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;miDebuggerPath&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;D:\\mingw64\\bin\\gdb.exe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="c1">//这里修改为你的电脑上gdb.exe路径
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nt">&amp;#34;setupCommands&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;为 gdb 启用整齐打印&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;text&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;-enable-pretty-printing&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;ignoreFailures&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;将反汇编风格设置为 Intel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;text&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;-gdb-set disassembly-flavor intel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;ignoreFailures&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="开始调试">开始调试
+&lt;/h4>&lt;ul>
+&lt;li>介绍一些快捷键
+&lt;ul>
+&lt;li>F5 启动调试&lt;/li>
+&lt;li>F9 设置断点&lt;/li>
+&lt;li>Ctrl+Shift+B 编译代码&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250708000521706.png"
+loading="lazy"
+alt="image-20250708000521706"
+>&lt;/p>
+&lt;p>以上便是VsCode进行C/C++环境配置的全部内容。&lt;/p></description></item></channel></rss>

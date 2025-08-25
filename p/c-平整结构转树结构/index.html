@@ -1,0 +1,519 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="树结构"><title>C++ 平整结构转树结构</title>
+<link rel=canonical href=https://bigbosscyb.github.io/p/c-%E5%B9%B3%E6%95%B4%E7%BB%93%E6%9E%84%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="C++ 平整结构转树结构"><meta property='og:description' content="树结构"><meta property='og:url' content='https://bigbosscyb.github.io/p/c-%E5%B9%B3%E6%95%B4%E7%BB%93%E6%9E%84%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/'><meta property='og:site_name' content='bigbosscyb'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='数据结构'><meta property='article:published_time' content='2025-08-25T08:22:18+08:00'><meta property='article:modified_time' content='2025-08-25T08:22:18+08:00'><meta name=twitter:title content="C++ 平整结构转树结构"><meta name=twitter:description content="树结构"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu4248561383974080784.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>bigbosscyb</a></h1><h2 class=site-description>分享知识心得</h2></div></header><ol class=menu-social><li><a href=https://space.bilibili.com/301876846 target=_blank title=BiliBili rel=me><svg class="icon icon-tabler icon-tabler-brand-bilibili" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 014-4h10a4 4 0 014 4v6a4 4 0 01-4 4H7a4 4 0 01-4-4v-6z"/><path d="M8 3l2 3"/><path d="M16 3l-2 3"/><path d="M9 13v-2"/><path d="M15 11v2"/></svg></a></li><li><a href=https://www.cnblogs.com/bigbosscyb target=_blank title=cnblogs rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li><li><a href=https://github.com/bigbosscyb target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#1-传参方式不合理导致数据复制开销大且逻辑无效>1. 传参方式不合理，导致数据复制开销大且逻辑无效</a></li><li><a href=#2-树结构构建逻辑错误无法保留结果>2. 树结构构建逻辑错误，无法保留结果</a></li><li><a href=#3-类封装性缺失数据安全性差>3. 类封装性缺失，数据安全性差</a></li><li><a href=#4-函数无返回值无法获取构建结果>4. 函数无返回值，无法获取构建结果</a></li><li><a href=#5-容器使用效率低存在冗余操作>5. 容器使用效率低，存在冗余操作</a></li><li><a href=#改进方向>改进方向</a></li><li><a href=#是否要考虑-buildtree-返回多个根节点>是否要考虑 <code>BuildTree</code> 返回多个根节点？</a></li><li><a href=#让ai从头设计>让AI从头设计</a></li><li><a href=#设计亮点说明>设计亮点说明</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/c/>C
+</a><a href=/categories/c++/>C++</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/c-%E5%B9%B3%E6%95%B4%E7%BB%93%E6%9E%84%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/>C++ 平整结构转树结构</a></h2><h3 class=article-subtitle>树结构</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-08-25</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 12 分钟</time></div></footer></div></header><section class=article-content><p>凭着我对c#语言的理解，我写出了如下代码：目的是将平整结构的集合，转化成层级结构。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;map&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Node</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>children</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>Node</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>)</span> <span class=o>:</span> <span class=n>id</span><span class=p>(</span><span class=n>id</span><span class=p>),</span> <span class=n>value</span><span class=p>(</span><span class=n>value</span><span class=p>),</span> <span class=n>pid</span><span class=p>(</span><span class=n>pid</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>static</span> <span class=kt>void</span> <span class=nf>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;1&#34;</span><span class=p>,</span> <span class=s>&#34;node 1&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;2&#34;</span><span class=p>,</span> <span class=s>&#34;node 2&#34;</span><span class=p>,</span> <span class=s>&#34;1&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;3&#34;</span><span class=p>,</span> <span class=s>&#34;node 3&#34;</span><span class=p>,</span> <span class=s>&#34;1&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;4&#34;</span><span class=p>,</span> <span class=s>&#34;node 4&#34;</span><span class=p>,</span> <span class=s>&#34;2&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=n>Node</span><span class=o>::</span><span class=n>BuildTree</span><span class=p>(</span><span class=n>nodes</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>Node</span><span class=o>::</span><span class=n>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>map</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>&gt;</span> <span class=n>map</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>node</span><span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>map</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>pair</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>&gt;</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>id</span><span class=p>,</span> <span class=n>node</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>node</span><span class=p>:</span> <span class=n>map</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>auto</span> <span class=n>parent</span> <span class=o>=</span> <span class=n>map</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>second</span><span class=p>.</span><span class=n>pid</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>parent</span> <span class=o>!=</span> <span class=n>map</span><span class=p>.</span><span class=n>end</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>parent</span><span class=o>-&gt;</span><span class=n>second</span><span class=p>.</span><span class=n>children</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>second</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>运行下来后，我发现BuildTree方法的nodes并没有发生改变，于是我让Ai帮我分析了一下代码：</p><p>下面是AI的思考：</p><blockquote><p>用户让我分析这段 C++ 代码有什么不好的地方。首先，我需要仔细看一下代码的结构和功能。这段代码定义了一个 Node 类，用来构建树结构，有 id、value、pid 和 children 成员，还有一个静态方法 BuildTree 来构建树。main 函数里创建了一些节点，然后调用 BuildTree。</p><p>首先，我应该从几个方面检查：内存管理、逻辑错误、效率问题、封装性、const 正确性、传参方式等等。</p><p>先看 BuildTree 函数。它的参数是 std::vector<node> nodes，这是按值传递的，意味着会复制整个 vector，效率不高，尤其是节点多的时候，应该用 const 引用传递，比如 const std::vector<node>& nodes。</p><p>然后，BuildTree 里用 map 存储节点，也是按值存储的。当插入 map 的时候，是复制了 node 对象。之后遍历 map，查找父节点，然后 parent->second.children.push_back (node.second)，这里又复制了 node.second。这会导致什么问题呢？原来的 nodes vector 里的节点，和 map 里的节点都是副本，所以当我们往 parent 的 children 里添加节点时，其实添加的是 map 中节点的副本，而不是原始节点。这样构建的树结构只是在 map 的副本之间建立关系，函数结束后 map 被销毁，树结构也就不存在了，main 函数里的 nodes 并没有被修改，所以这个 BuildTree 实际上没有任何效果，因为它操作的都是副本，没有修改原始数据。这是一个严重的逻辑错误，因为函数的目的应该是构建树，但最终什么都没留下。</p><p>接下来，Node 类的成员都是 public 的，缺乏封装性。良好的设计应该把成员变量设为 private，通过 public 的 getter 和 setter 来访问，这样可以控制访问权限，保证数据的完整性。</p><p>然后，BuildTree 是静态方法，但是构建树之后，树的根节点或者整个结构没有被返回，也没有被存储到某个地方。main 函数调用后，无法使用构建好的树，因为 BuildTree 没有输出任何结果。应该让 BuildTree 返回根节点或者整个树的结构，或者修改传入的 nodes vector 中的节点。</p><p>另外，在 map 的使用上，插入的时候用 map.insert (std::pair&mldr;)，其实可以用 emplace 或者直接 map [node.id] = node，更简洁。不过这是小问题。</p><p>还有，当遍历 map 的时候，auto node 是 map 的键值对，node.second 是 Node 对象，这时候对 parent->second.children 添加的是副本，如前所述，导致树结构无法保留。应该存储指针或者引用，而不是值。因为如果存储对象，会有多次复制，而且原始节点不会被修改。</p><p>可能的内存问题：如果使用指针，需要注意所有权，但这里按值存储导致的是逻辑错误，无法构建有效的树结构。</p><p>另外，BuildTree 函数内部构建的树，在函数结束后就销毁了，因为 map 是局部变量，所以整个树结构在函数退出后就不存在了，这使得这个函数没有实际作用。</p><p>还有，Node 的构造函数是 public 的，没问题，但成员变量暴露在外，可能被意外修改，破坏树的结构。</p><p>总结一下主要问题：</p><ol><li>传参方式错误：BuildTree 参数按值传递，导致复制开销大，且操作的是副本。</li><li>树结构无法保留：BuildTree 内部操作的是局部 map 中的副本，函数结束后所有修改丢失，原始 nodes 未被修改。</li><li>缺乏封装：Node 的成员变量都是 public，不符合封装原则。</li><li>函数无返回值：BuildTree 没有返回构建好的树结构，调用者无法使用。</li><li>对象复制过多：map 存储的是 Node 副本，添加 children 时又复制，效率低且导致逻辑错误。</li><li>可能的空 pid 处理：根节点的 pid 是空字符串，查找时 parent 会是 map.end ()，这部分没问题，但如果有无效的 pid（不存在的 id），也没有错误处理。</li></ol><p>需要把这些问题一一指出来，并说明为什么不好，以及可能的改进方向。</p></blockquote><p>下面是AI的回答</p><p>这段 C++ 代码主要用于构建树形结构，但存在一些设计和逻辑上的问题，具体分析如下：</p><h3 id=1-传参方式不合理导致数据复制开销大且逻辑无效>1. 传参方式不合理，导致数据复制开销大且逻辑无效</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>static</span> <span class=kt>void</span> <span class=nf>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>);</span>  <span class=c1>// 按值传递vector
+</span></span></span></code></pre></td></tr></table></div></div><ul><li><strong>问题</strong>：函数参数使用按值传递（<code>std::vector&lt;Node> nodes</code>），会导致整个容器及其中的<code>Node</code>对象被完整复制。当节点数量较多时，会产生大量冗余复制，浪费内存和 CPU 资源。</li><li><strong>更严重的问题</strong>：由于传递的是副本，<code>BuildTree</code>内部对<code>nodes</code>的所有操作（包括构建树结构）都仅作用于这个副本，而非<code>main</code>函数中原始的<code>nodes</code>容器。函数执行完毕后，副本被销毁，原始数据完全没有被修改，相当于 “白执行”。</li></ul><h3 id=2-树结构构建逻辑错误无法保留结果>2. 树结构构建逻辑错误，无法保留结果</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=kt>void</span> <span class=n>Node</span><span class=o>::</span><span class=n>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>map</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>&gt;</span> <span class=n>map</span><span class=p>;</span>  <span class=c1>// 存储Node的副本
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>node</span><span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>map</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>pair</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>&gt;</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>id</span><span class=p>,</span> <span class=n>node</span><span class=p>));</span>  <span class=c1>// 复制node到map
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>node</span><span class=p>:</span> <span class=n>map</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>auto</span> <span class=n>parent</span> <span class=o>=</span> <span class=n>map</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>second</span><span class=p>.</span><span class=n>pid</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>parent</span> <span class=o>!=</span> <span class=n>map</span><span class=p>.</span><span class=n>end</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=c1>// 向parent的children添加node的副本
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=n>parent</span><span class=o>-&gt;</span><span class=n>second</span><span class=p>.</span><span class=n>children</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>second</span><span class=p>);</span> 
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>问题 1</strong>：<code>map</code>中存储的是<code>Node</code>的副本（而非原始节点的引用或指针），后续对<code>map</code>中节点的修改（如添加子节点）仅作用于这些副本。</li><li><strong>问题 2</strong>：<code>map</code>是函数内部的局部变量，函数执行结束后会被销毁，其中构建的树结构也会随之消失，无法传递到外部使用。</li><li><strong>问题 3</strong>：<code>children</code>中存储的也是<code>Node</code>的副本，而非原始节点的关联，导致树结构的节点之间没有实际的引用关系，只是一堆独立的副本。</li></ul><h3 id=3-类封装性缺失数据安全性差>3. 类封装性缺失，数据安全性差</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>class</span> <span class=nc>Node</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>children</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>问题</strong>：<code>Node</code>的所有成员变量都被声明为<code>public</code>，外部可以直接修改<code>id</code>、<code>pid</code>等关键数据，可能导致树结构的逻辑被破坏（例如随意修改<code>pid</code>导致父子关系混乱）。良好的设计应将成员变量设为<code>private</code>，通过<code>public</code>的接口（如<code>getter</code>/<code>setter</code>）控制访问和修改。</li></ul><h3 id=4-函数无返回值无法获取构建结果>4. 函数无返回值，无法获取构建结果</h3><ul><li><strong>问题</strong>：<code>BuildTree</code>是<code>void</code>类型，既没有返回构建好的树结构（如根节点），也没有通过引用 / 指针修改外部数据，导致调用者（如<code>main</code>函数）无法获取构建后的树。调用<code>Node::BuildTree(nodes)</code>后，完全无法使用构建的结果。</li></ul><h3 id=5-容器使用效率低存在冗余操作>5. 容器使用效率低，存在冗余操作</h3><ul><li><code>map.insert(std::pair&lt;std::string, Node>(node.id, node))</code>可以简化为<code>map[node.id] = node</code>，更简洁。</li><li>遍历<code>nodes</code>插入<code>map</code>时，使用<code>auto& node : nodes</code>（引用）可避免一次不必要的复制（当前代码中<code>auto node</code>会复制元素）。</li></ul><h3 id=改进方向>改进方向</h3><ol><li><strong>修改传参方式</strong>：使用<code>const std::vector&lt;Node>& nodes</code>（const 引用）避免复制，若需要修改原始节点，可传递非 const 引用。</li><li><strong>使用指针 / 引用关联节点</strong>：通过<code>std::vector&lt;Node*></code>或智能指针存储节点，避免副本，确保树结构的节点关联有效。</li><li><strong>增强封装性</strong>：将<code>Node</code>的成员变量设为<code>private</code>，提供必要的接口函数。</li><li><strong>返回构建结果</strong>：让<code>BuildTree</code>返回根节点指针或整个树的结构，方便外部使用。</li><li><strong>添加错误处理</strong>：对无效的<code>pid</code>（如不存在的父节点 ID）进行处理，避免逻辑错误。</li></ol><p>例如，修改后的核心逻辑可能如下（简化示例）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>class</span> <span class=nc>Node</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>private</span><span class=o>:</span>  <span class=c1>// 封装成员变量
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>children</span><span class=p>;</span>  <span class=c1>// 存储指针，关联原始节点
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 构造函数和接口函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>Node</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl>        <span class=o>:</span> <span class=n>id</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>id</span><span class=p>)),</span> <span class=n>value</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>value</span><span class=p>)),</span> <span class=n>pid</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>pid</span><span class=p>))</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>getID</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>id</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>getPID</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>pid</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kt>void</span> <span class=nf>addChild</span><span class=p>(</span><span class=n>Node</span><span class=o>*</span> <span class=n>child</span><span class=p>)</span> <span class=p>{</span> <span class=n>children</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>child</span><span class=p>);</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1>// 返回根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>static</span> <span class=n>Node</span><span class=o>*</span> <span class=nf>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;&amp;</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>  <span class=c1>// 传引用，修改原始数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>std</span><span class=o>::</span><span class=n>map</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>*&gt;</span> <span class=n>nodeMap</span><span class=p>;</span>  <span class=c1>// 存储指针，避免复制
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>  <span class=c1>// 引用遍历，避免复制
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=n>nodeMap</span><span class=p>[</span><span class=n>node</span><span class=p>.</span><span class=n>getID</span><span class=p>()]</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>node</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=n>Node</span><span class=o>*</span> <span class=n>root</span> <span class=o>=</span> <span class=k>nullptr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>auto</span> <span class=n>parentIt</span> <span class=o>=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>node</span><span class=p>.</span><span class=n>getPID</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>parentIt</span> <span class=o>!=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>end</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>parentIt</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>-&gt;</span><span class=n>addChild</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>root</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>node</span><span class=p>;</span>  <span class=c1>// 假设空pid为根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>root</span><span class=p>;</span>  <span class=c1>// 返回根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>考虑到平整结构的集合返回的可能是多个根节点，所以我再次询问AI修改实现，这次将考虑将BuildTree方法返回一个vector&lt;Node*>集合。</p><h3 id=是否要考虑-buildtree-返回多个根节点>是否要考虑 <code>BuildTree</code> 返回多个根节点？</h3><p><strong>需要考虑！实际场景中可能存在多个根节点（即 “森林” 结构），因此 <code>BuildTree</code> 应返回根节点的集合</strong>。</p><ol><li><p><strong>为什么可能存在多个根节点？</strong>
+根节点的定义是 “没有父节点的节点”（通常 <code>pid</code> 为空字符串或无效值）。在实际数据中，可能存在多个 <code>pid</code> 为空的节点，例如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// 示例：两个根节点（pid为空）
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;1&#34;</span><span class=p>,</span> <span class=s>&#34;根节点1&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;2&#34;</span><span class=p>,</span> <span class=s>&#34;根节点2&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=n>nodes</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>Node</span><span class=p>(</span><span class=s>&#34;3&#34;</span><span class=p>,</span> <span class=s>&#34;子节点&#34;</span><span class=p>,</span> <span class=s>&#34;1&#34;</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>此时树结构实际是 “森林”（多棵树的集合），若 <code>BuildTree</code> 仅返回单个根节点，会丢失其他根节点及其子树。</p></li><li><p><strong>如何处理多个根节点？</strong>
+应将 <code>BuildTree</code> 的返回类型改为根节点指针的集合（如 <code>std::vector&lt;Node*></code>），遍历所有节点时，将所有无父节点（<code>pid</code> 无效）的节点加入根节点集合。示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>static</span> <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>BuildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;&amp;</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>map</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>*&gt;</span> <span class=n>nodeMap</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>nodeMap</span><span class=p>[</span><span class=n>node</span><span class=p>.</span><span class=n>getID</span><span class=p>()]</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>node</span><span class=p>;</span>  <span class=c1>// 存储节点指针
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>roots</span><span class=p>;</span>  <span class=c1>// 根节点集合
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>pid</span> <span class=o>=</span> <span class=n>node</span><span class=p>.</span><span class=n>getPID</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>pid</span><span class=p>.</span><span class=n>empty</span><span class=p>())</span> <span class=p>{</span>  <span class=c1>// pid为空，视为根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=n>roots</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>auto</span> <span class=n>parentIt</span> <span class=o>=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>pid</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>parentIt</span> <span class=o>!=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>end</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>parentIt</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>-&gt;</span><span class=n>addChild</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>  <span class=c1>// 关联子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=c1>// 处理无效pid（父节点不存在），可视为根节点或报错
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=n>roots</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span> 
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>roots</span><span class=p>;</span>  <span class=c1>// 返回所有根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ol><p>我感觉已经很完美了，但我还是想看看AI自己实现会是什么效果，于是我提问：请不要考虑我之前的实现，如果让你写， 你会怎么将平整的Node结构的集合转成树结构。</p><h3 id=让ai从头设计>让AI从头设计</h3><p>AI的思考：</p><blockquote><p>嗯，用户这次的需求是把一个扁平的 Node 结构集合转换成树结构，而且特别强调了不要考虑他之前的实现。这挺好的，意味着我可以从头设计一个更合理的方案，不受历史代码的束缚。</p><p>首先，我得明确这个问题的核心是什么。扁平结构转树形，关键在于如何根据每个节点的父 ID（pid）找到它的父节点，并建立起正确的父子关系。这通常需要一个查找父节点的高效方式，哈希表（在 C++ 里就是 std::unordered_map）应该是个不错的选择，能做到 O (1) 的查找复杂度。</p><p>那么，Node 这个类应该怎么设计呢？它需要有 id、value、pid 这些基本属性，还有一个存储子节点的容器。考虑到效率和避免不必要的复制，子节点容器应该存储指针而不是对象本身。所以，children 应该是<code>std::vector&lt;Node*></code>类型。成员变量最好设为 private，通过 public 的 getter 和 setter 来访问，这样更符合封装的原则。</p><p>接下来是转换函数，就叫 buildTree 吧。它的输入应该是一个扁平的 Node 集合，为了避免复制，应该用引用传递。返回值呢？考虑到可能存在多个根节点（即 pid 为空或者找不到对应父节点的节点），所以应该返回一个根节点指针的 vector，也就是<code>std::vector&lt;Node*></code>。</p><p>函数内部的步骤大概是这样的：</p><ol><li>先创建一个哈希表，把每个节点的 id 和它的指针对应起来，方便后续查找父节点。</li><li>遍历所有节点，对于每个节点：
+a. 如果 pid 为空，说明它是一个根节点，加入根节点列表。
+b. 如果 pid 不为空，就到哈希表里查找对应的父节点。
+c. 如果找到了父节点，就把当前节点添加到父节点的 children 里。
+d. 如果没找到父节点，那这个节点也算是一个根节点（可能是数据有问题，但程序应该能处理这种情况），加入根节点列表。</li></ol><p>哦，对了，还得考虑内存管理的问题。如果这些 Node 对象是在堆上创建的，那谁来负责释放呢？或许可以提供一个销毁树的函数，递归地删除所有节点。不过，如果 Node 对象是存储在一个容器里，由容器管理生命周期，那可能就不需要这个销毁函数了。这点可以在代码注释里说明一下。</p><p>另外，为了方便测试，我还应该写一个简单的打印树结构的函数，用递归的方式遍历树，打印出每个节点的信息和它的子节点，这样能直观地看到转换结果是否正确。</p><p>最后，在 main 函数里，创建一些测试节点，调用 buildTree 函数，然后打印出结果，再根据情况销毁树（如果需要的话）。</p><p>这样一来，整个方案应该就比较完整了。它既考虑了效率，也考虑了代码的健壮性和可维护性，还能处理多种情况，包括多个根节点的情况。嗯，就按照这个思路来写代码吧。</p></blockquote><p>我会设计一个更健壮、高效的实现，考虑指针管理、多根节点支持和清晰的接口设计。以下是实现方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;vector&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;unordered_map&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;memory&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1>// 节点类设计，使用封装和智能指针
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>class</span> <span class=nc>Node</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>private</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>children</span><span class=p>;</span>  <span class=c1>// 存储子节点指针
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 构造函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>Node</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>id</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>value</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span> <span class=n>pid</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=o>:</span> <span class=n>id</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>id</span><span class=p>)),</span> <span class=n>value</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>value</span><span class=p>)),</span> <span class=n>pid</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>move</span><span class=p>(</span><span class=n>pid</span><span class=p>))</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 禁止拷贝构造和赋值（避免指针混乱）
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>Node</span><span class=p>(</span><span class=k>const</span> <span class=n>Node</span><span class=o>&amp;</span><span class=p>)</span> <span class=o>=</span> <span class=k>delete</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>Node</span><span class=o>&amp;</span> <span class=k>operator</span><span class=o>=</span><span class=p>(</span><span class=k>const</span> <span class=n>Node</span><span class=o>&amp;</span><span class=p>)</span> <span class=o>=</span> <span class=k>delete</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 允许移动构造和赋值
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>Node</span><span class=p>(</span><span class=n>Node</span><span class=o>&amp;&amp;</span><span class=p>)</span> <span class=o>=</span> <span class=k>default</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>Node</span><span class=o>&amp;</span> <span class=k>operator</span><span class=o>=</span><span class=p>(</span><span class=n>Node</span><span class=o>&amp;&amp;</span><span class=p>)</span> <span class=o>=</span> <span class=k>default</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 接口方法
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>getID</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>id</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>getPID</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>pid</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>getValue</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>value</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;&amp;</span> <span class=n>getChildren</span><span class=p>()</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=n>children</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 添加子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>void</span> <span class=nf>addChild</span><span class=p>(</span><span class=n>Node</span><span class=o>*</span> <span class=n>child</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>child</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>children</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>child</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 递归打印树结构（调试用）
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>void</span> <span class=nf>print</span><span class=p>(</span><span class=kt>int</span> <span class=n>depth</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span> <span class=k>const</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 打印缩进
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>depth</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;  &#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;- &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>id</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;: &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>value</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>// 打印子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=k>auto</span><span class=o>*</span> <span class=nl>child</span> <span class=p>:</span> <span class=n>children</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>child</span><span class=o>-&gt;</span><span class=n>print</span><span class=p>(</span><span class=n>depth</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 构建树的静态方法，返回根节点集合
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>static</span> <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>buildTree</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;&amp;</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 建立ID到节点指针的映射（O(1)查找）
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>std</span><span class=o>::</span><span class=n>unordered_map</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=p>,</span> <span class=n>Node</span><span class=o>*&gt;</span> <span class=n>nodeMap</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>nodeMap</span><span class=p>[</span><span class=n>node</span><span class=p>.</span><span class=n>getID</span><span class=p>()]</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>node</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>roots</span><span class=p>;</span>  <span class=c1>// 存储所有根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 构建父子关系
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>node</span> <span class=p>:</span> <span class=n>nodes</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&amp;</span> <span class=n>parentId</span> <span class=o>=</span> <span class=n>node</span><span class=p>.</span><span class=n>getPID</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>parentId</span><span class=p>.</span><span class=n>empty</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=c1>// 没有父节点，作为根节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=n>roots</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=c1>// 查找父节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=k>auto</span> <span class=n>it</span> <span class=o>=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>parentId</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=n>it</span> <span class=o>!=</span> <span class=n>nodeMap</span><span class=p>.</span><span class=n>end</span><span class=p>())</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=c1>// 找到父节点，建立关联
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=n>it</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>-&gt;</span><span class=n>addChild</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=c1>// 父节点不存在，视为根节点（容错处理）
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=n>roots</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=o>&amp;</span><span class=n>node</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                    <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Warning: Parent ID &#39;&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>parentId</span> 
+</span></span><span class=line><span class=cl>                              <span class=o>&lt;&lt;</span> <span class=s>&#34;&#39; not found for node &#39;&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>node</span><span class=p>.</span><span class=n>getID</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;&#39;&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>roots</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 创建扁平节点集合
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>&gt;</span> <span class=n>nodes</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;1&#34;</span><span class=p>,</span> <span class=s>&#34;Root 1&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>);</span>       <span class=c1>// 根节点1
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;2&#34;</span><span class=p>,</span> <span class=s>&#34;Root 2&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>);</span>       <span class=c1>// 根节点2（多根节点示例）
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;3&#34;</span><span class=p>,</span> <span class=s>&#34;Child of 1&#34;</span><span class=p>,</span> <span class=s>&#34;1&#34;</span><span class=p>);</span>  <span class=c1>// 节点1的子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;4&#34;</span><span class=p>,</span> <span class=s>&#34;Child of 3&#34;</span><span class=p>,</span> <span class=s>&#34;3&#34;</span><span class=p>);</span>  <span class=c1>// 节点3的子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;5&#34;</span><span class=p>,</span> <span class=s>&#34;Child of 2&#34;</span><span class=p>,</span> <span class=s>&#34;2&#34;</span><span class=p>);</span>  <span class=c1>// 节点2的子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>nodes</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=s>&#34;6&#34;</span><span class=p>,</span> <span class=s>&#34;Orphan Node&#34;</span><span class=p>,</span> <span class=s>&#34;99&#34;</span><span class=p>);</span><span class=c1>// 父节点不存在（容错示例）
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 构建树
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Node</span><span class=o>*&gt;</span> <span class=n>roots</span> <span class=o>=</span> <span class=n>Node</span><span class=o>::</span><span class=n>buildTree</span><span class=p>(</span><span class=n>nodes</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// 打印所有树
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Built &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>roots</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; tree(s):&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>roots</span><span class=p>.</span><span class=n>size</span><span class=p>();</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Tree &#34;</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;:&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>roots</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>-&gt;</span><span class=n>print</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>输出结果：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>Warning: Parent ID <span class=s1>&#39;99&#39;</span> not found <span class=k>for</span> node <span class=s1>&#39;6&#39;</span>
+</span></span><span class=line><span class=cl>Built <span class=m>3</span> tree<span class=o>(</span>s<span class=o>)</span>:
+</span></span><span class=line><span class=cl>Tree 1:
+</span></span><span class=line><span class=cl>- 1: Root <span class=m>1</span>
+</span></span><span class=line><span class=cl>  - 3: Child of <span class=m>1</span>
+</span></span><span class=line><span class=cl>    - 4: Child of <span class=m>3</span>
+</span></span><span class=line><span class=cl>Tree 2:
+</span></span><span class=line><span class=cl>- 2: Root <span class=m>2</span>
+</span></span><span class=line><span class=cl>  - 5: Child of <span class=m>2</span>
+</span></span><span class=line><span class=cl>Tree 3:
+</span></span><span class=line><span class=cl>- 6: Orphan Node
+</span></span></code></pre></td></tr></table></div></div><p>扁平Node集合转树结构的实现</p><h3 id=设计亮点说明>设计亮点说明</h3><ol><li><strong>高效的节点查找</strong>：
+使用<code>unordered_map</code>存储 ID 到节点指针的映射，将父节点查找复杂度从 O (n) 降至 O (1)，大幅提升大数据量下的性能。</li><li><strong>支持多根节点</strong>：
+通过返回<code>vector&lt;Node*></code>存储所有根节点，自然支持森林（多棵树）结构，符合实际业务场景。</li><li><strong>内存安全设计</strong>：<ul><li>禁止拷贝构造和赋值，避免指针混乱</li><li>使用原始指针但保证节点存储在容器中，生命周期可控</li><li>如需动态管理可改为<code>shared_ptr</code>实现</li></ul></li><li><strong>健壮的容错处理</strong>：
+对不存在的父节点 ID 进行警告，并将其视为根节点，避免程序崩溃。</li><li><strong>清晰的封装接口</strong>：<ul><li>成员变量私有化，通过<code>getter</code>方法访问</li><li>提供<code>addChild</code>方法安全添加子节点</li><li>内置<code>print</code>方法方便调试查看树结构</li></ul></li><li><strong>无数据复制开销</strong>：
+全程使用指针操作，避免节点对象的冗余复制，尤其适合处理大量节点的场景。</li></ol><p>这个实现既考虑了性能和安全性，又保持了代码的可读性和可维护性，能够适应大多数从扁平结构构建树形结构的需求。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/>数据结构</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/c%E8%AF%AD%E8%A8%80-%E5%87%BD%E6%95%B0/><div class=article-details><h2 class=article-title>c语言 函数</h2></div></a></article><article><a href=/p/c%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E7%AC%A6-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5/><div class=article-details><h2 class=article-title>c语言 运算符 表达式 语句</h2></div></a></article><article><a href=/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91c/c-/><div class=article-details><h2 class=article-title>使用vscode开发c/c++</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=bigbosscyb/bigbosscyb.github.io data-repo-id=R_kgDOO59wIQ data-category=Announcements data-category-id=DIC_kwDOO59wIc4CrWIR data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 bigbosscyb</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

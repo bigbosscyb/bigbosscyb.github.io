@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on bigbosscyb</title><link>https://bigbosscyb.github.io/categories/hugo/</link><description>Recent content in Hugo on bigbosscyb</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>bigbosscyb</copyright><lastBuildDate>Sat, 14 Jun 2025 14:14:01 +0800</lastBuildDate><atom:link href="https://bigbosscyb.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>使用hugo写博客</title><link>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/</link><pubDate>Sat, 14 Jun 2025 14:14:01 +0800</pubDate><guid>https://bigbosscyb.github.io/p/%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/</guid><description>&lt;h3 id="介绍hugo">介绍Hugo
+&lt;/h3>&lt;p>基于GO语言编写的&lt;strong>静态网站生成器&lt;/strong>，能够托管在Github Pages上，可以集成git discuss的评论系统，无需数据库，不需要写代码，就可以快速帮助你搭建一个属于自己的博客网站。&lt;/p>
+&lt;h3 id="下载hugo">下载Hugo
+&lt;/h3>&lt;ul>
+&lt;li>方式一：从github下载release版&lt;/li>
+&lt;li>方式二：如果访问github速度太慢，可以在浏览器搜索Hugo下载&lt;/li>
+&lt;/ul>
+&lt;p>总之，下载的是这个压缩包：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614142959933.png" alt="image-20250614142959933" style="zoom:55%;" />
+&lt;h3 id="使用hugo">使用Hugo
+&lt;/h3>&lt;h4 id="创建站点">创建站点
+&lt;/h4>&lt;p>我们主要是在使用hugo.exe来进行一系列操作的，这里建议新开一个要写博客的目录，（&lt;strong>由于我们没有把hugo.exe配置到环境变量中&lt;/strong>）接着把hugo.exe拷贝到那个目录。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614143436876.png" alt="image-20250614143436876" style="zoom:80%;" />
+&lt;p>然后使用 hugo new site 命令创建一个博客站点，如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo new site hugo-test
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>命令执行成功后，会生成一个hugo-test的目录，那么一个本地博客站点就已经搭建好了。&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144054698.png" alt="image-20250614144054698" style="zoom: 80%;" />
+&lt;p>可以观察到目录里面的内容&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144135229.png" alt="image-20250614144135229" style="zoom:90%;" />
+&lt;h4 id="浏览博客站点">浏览博客站点
+&lt;/h4>&lt;p>虽然我们还没有写一篇博客，但我们已经可以浏览这个站点了；这里我们还是把hugo.exe往hugo-test目录下拷贝，以便于能继续使用hugo命令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo server -D &lt;span class="c1">#-D中的D是buildDrafts的简写&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144546898.png" alt="image-20250614144546898" style="zoom:60%;" />
+&lt;p>键盘按住CTRL键，然后鼠标点击控制台中的链接，即可在浏览器中打开这个站点：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614144412454.png" alt="image-20250614144412454" style="zoom:125%;" />
+&lt;h4 id="配置主题">配置主题
+&lt;/h4>&lt;p>主题文件夹其实类似一个站点模板，这里将主题文件夹下的配置文件hugo.yaml及examplesite目录下的内容拷贝到我们的站点下，从而达到快速应用主题的目的。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>下载主题：点击链接[hugo stack](&lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
+>Hugo Themes&lt;/a>)，找到stack主题下载后解压缩：然后将主题文件夹复制到之前创建的hugo-test站点目录的themes文件夹下，并将主题文件改名，最后效果如下：&lt;/p>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153314011.png" alt="image-20250614153314011" style="zoom:96%;" />
+&lt;/li>
+&lt;li>
+&lt;p>把主题文件夹hugo-theme-stack中exampleSite\content\post路径下的rich-content目录删掉，然后把hugo-theme-stack\exampleSite\下面的content目录和hugo.yaml复制到hugo-test站点目录下，最后还要把hugo-test目录下的hugo.toml文件删掉&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153603838.png" alt="image-20250614153603838" style="zoom:82%;" />
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614153636596.png" alt="image-20250614153636596" style="zoom:90%;" />
+&lt;ol start="3">
+&lt;li>打开hugo.yaml，确认里面的theme节点的配置使用的站点目录下themes目录里面的主题文件夹名即：&lt;/li>
+&lt;/ol>
+&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614154248291.png" alt="image-20250614154248291" style="zoom: 64%;" />
+&lt;ol start="4">
+&lt;li>重新启动站点服务，查看效果：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hugo server -D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614155512875.png"
+loading="lazy"
+alt="image-20250614155512875"
+>&lt;/p>
+&lt;h3 id="github部署">github部署
+&lt;/h3>&lt;p>这里我们介绍如何使用github管理hugo站点并且自动化发布站点应用&lt;/p>
+&lt;h4 id="创建github-pages类型的仓库">创建github pages类型的仓库
+&lt;/h4>&lt;p>创建一个以{github用户名}.github.io命名的仓库，就会被github认为你创建了一个静态页面网站；github会以https://仓库名 作为静态网站的地址，仓库创建后稍后可访问。&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614164036299.png"
+loading="lazy"
+alt="image-20250614164036299"
+>&lt;/p>
+&lt;h4 id="上传hugo站点文件到仓库">上传hugo站点文件到仓库
+&lt;/h4>&lt;ol>
+&lt;li>在本地hugo-test目录下，创建一个.gitignore文件，添加以下内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自动生成的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">public
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resources
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.hugo_build.lock
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># hugo命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过以上操作，将站点自动生成的文件如：public发布目录、.hugo_build.lock自动生成文件 等进行了过滤；这些文件不提交至远程仓库&lt;/p>
+&lt;ol start="2">
+&lt;li>创建本地仓库，然后将本地仓库上传至远程仓库&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin &lt;span class="o">{&lt;/span>你的github仓库地址&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin mater
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="创建github-workflows">创建github workflows
+&lt;/h4>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614164928986.png"
+loading="lazy"
+alt="image-20250614164928986"
+>&lt;/p>
+&lt;p>在远程仓库使用Github Actions创建一个工作流，来帮助我们自动发布编写的博客：当我们在本地写好一篇博客，推送至远程时，触发工作流最后是实现自动部署。这里我的workflows目录下，需要填写的内容摘抄自另外一个github博主【[&lt;strong>.github/workflows/deploy.yml&lt;/strong>](&lt;a class="link" href="https://github.com/BYJRK/byjrk.github.io/blob/master/.github/workflows/deploy.yml" target="_blank" rel="noopener"
+>byjrk.github.io/.github/workflows/deploy.yml at master · BYJRK/byjrk.github.io&lt;/a>)】。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy to Github Pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">master]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">master]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">permissions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># Give the default GITHUB_TOKEN write permission to commit and push the&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># added or changed files to the repository.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">contents&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">write&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Cache Hugo resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/cache@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">env&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">cache-name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cache-hugo-resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">resources&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ env.cache-name }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/setup-go@v5&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">go-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1.24.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">go version&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;0.139.4&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify --gc&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy 🚀&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">JamesIves/github-pages-deploy-action@v4&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gh-pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">folder&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">clean&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">single-commit&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的工作流配置，可直接拷贝。大致效果就是，实际部署时将文件发布到了另外一个[gh-pages]分支上。&lt;/p>
+&lt;h4 id="在本地新增一篇文章上传测试自动部署效果">在本地新增一篇文章上传测试自动部署效果
+&lt;/h4>&lt;ul>
+&lt;li>创建一篇新的博客&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new content post/testblog/index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用编辑器打开该目录下的index.md文件，编辑好博客内容后。&lt;/p>
+&lt;ul>
+&lt;li>本地启动查看效果&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo server -D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>推送至远程观察工作流&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git add.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &amp;#34;post blog&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614170926014.png"
+loading="lazy"
+alt="image-20250614170926014"
+>&lt;/p>
+&lt;h3 id="添加评论系统">添加评论系统
+&lt;/h3>&lt;p>hugo默认集成的是disqus评论系统，但是这里我推荐使用的是giscus评论系统：因为它简单、容易继承。&lt;/p>
+&lt;h4 id="如何引入giscusgiscushttpsgiscusappzh-cn">如何引入&lt;a class="link" href="[giscus]%28https://giscus.app/zh-CN%29" >giscus&lt;/a>
+&lt;/h4>&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614172618627.png"
+loading="lazy"
+alt="image-20250614172618627"
+>&lt;/p>
+&lt;ol>
+&lt;li>选择一个仓库：这里就用博客所在的仓库，我的博客仓库是https://github.com/bigbosscyb/bigbosscyb.github.io&lt;/li>
+&lt;li>安装&lt;a class="link" href="https://github.com/apps/giscus" target="_blank" rel="noopener"
+>giscus app&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/giscus-install-preview.png"
+loading="lazy"
+alt="giscus-install-preview"
+>&lt;/p>
+&lt;p>点击安装会提示选一个仓库，选择上一步指定的仓库就行。&lt;/p>
+&lt;ol start="3">
+&lt;li>开启Discussions&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173118023.png"
+loading="lazy"
+alt="image-20250614173118023"
+>&lt;/p>
+&lt;ol start="4">
+&lt;li>填写仓库地址获取评论系统配置信息&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173340255.png"
+loading="lazy"
+alt="image-20250614173340255"
+>&lt;/p>
+&lt;p>按照上述步骤操作完成后，便可以得到下面配置信息：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173433533.png"
+loading="lazy"
+alt="image-20250614173433533"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>将红框内的配置信息复制，然后替换博客所在仓库的主题文件夹下的评论/服务/giscus.yaml文件的这一段内容：&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614173844404.png"
+loading="lazy"
+alt="image-20250614173844404"
+>&lt;/p>
+&lt;ol start="6">
+&lt;li>修改博客所在仓库根目录下的hugo.yaml文件，将评论系统从disqus改为giscus&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614174047163.png"
+loading="lazy"
+alt="image-20250614174047163"
+>&lt;/p>
+&lt;p>提交修改后，待自动部署完成后可看到博客中出现评论功能：&lt;/p>
+&lt;p>&lt;img src="https://picture.939826.xyz/pictures/img/image-20250614174250600.png"
+loading="lazy"
+alt="image-20250614174250600"
+>&lt;/p>
+&lt;h3 id="添加图床功能">添加图床功能
+&lt;/h3>&lt;p>这部分功能再新开一个文章继续介绍，不然文章篇幅太长了，会让人看不下去~&lt;/p>
+&lt;h4 id="使用github仓库当图床">使用github仓库当图床?
+&lt;/h4>&lt;h4 id="使用cloudflare-r2当图床">使用cloudflare R2当图床！
+&lt;/h4></description></item></channel></rss>

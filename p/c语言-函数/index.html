@@ -1,0 +1,265 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="函数的声明、定义与调用"><title>c语言 函数</title>
+<link rel=canonical href=https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E5%87%BD%E6%95%B0/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="c语言 函数"><meta property='og:description' content="函数的声明、定义与调用"><meta property='og:url' content='https://bigbosscyb.github.io/p/c%E8%AF%AD%E8%A8%80-%E5%87%BD%E6%95%B0/'><meta property='og:site_name' content='bigbosscyb'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='编程基础'><meta property='article:published_time' content='2025-08-10T16:18:51+08:00'><meta property='article:modified_time' content='2025-08-10T16:18:51+08:00'><meta name=twitter:title content="c语言 函数"><meta name=twitter:description content="函数的声明、定义与调用"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu4248561383974080784.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>bigbosscyb</a></h1><h2 class=site-description>分享知识心得</h2></div></header><ol class=menu-social><li><a href=https://space.bilibili.com/301876846 target=_blank title=BiliBili rel=me><svg class="icon icon-tabler icon-tabler-brand-bilibili" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 014-4h10a4 4 0 014 4v6a4 4 0 01-4 4H7a4 4 0 01-4-4v-6z"/><path d="M8 3l2 3"/><path d="M16 3l-2 3"/><path d="M9 13v-2"/><path d="M15 11v2"/></svg></a></li><li><a href=https://www.cnblogs.com/bigbosscyb target=_blank title=cnblogs rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li><li><a href=https://github.com/bigbosscyb target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#库函数><strong>库函数</strong></a></li><li><a href=#自定义函数><strong>自定义函数</strong></a><ol><li><a href=#函数的格式>函数的格式</a></li><li><a href=#函数的声明与定义>函数的声明与定义</a></li></ol></li><li><a href=#函数调用时的传参>函数调用时的传参</a><ol><li><a href=#函数参数的传递>函数参数的传递</a></li><li><a href=#函数参数传递方式之地址传递>函数参数传递方式之：地址传递</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/c/>C
+</a><a href=/categories/c++/>C++</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/c%E8%AF%AD%E8%A8%80-%E5%87%BD%E6%95%B0/>c语言 函数</a></h2><h3 class=article-subtitle>函数的声明、定义与调用</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-08-10</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><section class=article-content><p>在我们学习c语言之初，第一个接触的函数就是：</p><p><code>printf</code>函数，他是一个库函数。如果c语言不提供给我们这个库函数，我们就得自己实现。</p><h3 id=库函数><strong>库函数</strong></h3><p>我们就把：c语言内置的一系列函数，成为库函数。在这个网站可以查询并学习：<a class=link href=https://legacy.cplusplus.com/reference/ target=_blank rel=noopener>C Library</a></p><h3 id=自定义函数><strong>自定义函数</strong></h3><p>库函数不是万能的，他能够解决一些通用场景的编程工作；但是有些时候为完成特定目标的工作，则需要自己编写函数进行实现。</p><h4 id=函数的格式>函数的格式</h4><p>函数返回值类型 函数名 (函数参数类型 函数参数的变量名)</p><p>{</p><p>​ //函数功能实现部分 一般由一些语句组成</p><p>}</p><p>请注意，花括号也属于函数的一部分；在花括号中进行功能实现。</p><h4 id=函数的声明与定义>函数的声明与定义</h4><p><strong>函数声明</strong>：告诉编译器，有这么一个函数：函数名是什么、返回值类型是什么、参数是什么。仅此而已，但是否真的存在这个函数，仅仅有函数声明是决定不了的。</p><p><strong>函数调用</strong>：函数声明一定写在要在函数调用之前，否则编译器会提示找不到这个函数。</p><p><strong>函数定义</strong>：函数的具体功能实现的过程，就是函数定义。</p><p>下面以一个add函数的声明、定义、调用来了解上面这些话：</p><ul><li>调用未声明的函数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>ret</span> <span class=o>=</span> <span class=nf>Add</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d + %d = %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>ret</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//编译出错：error: call to undeclared function &#39;Add&#39;; --意思是：调用了未声明的函数
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>仅进行函数声明，未进行函数实现</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=nf>Add</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>ret</span> <span class=o>=</span> <span class=nf>Add</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d + %d = %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>ret</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//编译出错：Undefined symbols for &#34;_Add&#34;... --意思是：符号Add，未定义
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>函数的定义在调用函数之后</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>ret</span> <span class=o>=</span> <span class=nf>Add</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d + %d = %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>ret</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>Add</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//编译出错：error: call to undeclared function &#39;Add&#39;; --意思是：调用了未声明的函数
+</span></span></span></code></pre></td></tr></table></div></div><p>上面演示了一些未遵循函数声明、定义、调用规定的错误情形，下面提供一个无错误的版本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>Add</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>ret</span> <span class=o>=</span> <span class=nf>Add</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d + %d = %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>ret</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>Add</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//输出：1 + 1 = 2 
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=函数调用时的传参>函数调用时的传参</h3><blockquote><p><strong>函数的形参是实参值的拷贝，改变形参的值不会对实参产生任何影响。</strong></p></blockquote><p>举个例子，编写一个函数Swap(int x,int y)，目的是：调用Swap函数，实现两个数的值的交换。</p><p>我们很容易写出如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;a is :%d ;b is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Swap</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;after swap ,a is :%d ;b is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function begin,x is :%d ;y is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>temp</span> <span class=o>=</span> <span class=n>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=n>y</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>y</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function end,x is :%d ;y is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>程序输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>a is :1 <span class=p>;</span>b is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> begin,x is :1 <span class=p>;</span>y is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> end,x is :2 <span class=p>;</span>y is: <span class=m>1</span> 
+</span></span><span class=line><span class=cl>a is :1 <span class=p>;</span>b is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> begin,x is :1 <span class=p>;</span>y is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> end,x is :2 <span class=p>;</span>y is: <span class=m>1</span> 
+</span></span><span class=line><span class=cl>after swap ,a is :1 <span class=p>;</span>b is: <span class=m>2</span> 
+</span></span></code></pre></td></tr></table></div></div><p>为什么a、b没有发生交换？因为形参x,y的值是从实参a，b的复制而来的，x，y有值后就和a，b没有关系了；</p><p>可以认为这里隐藏了一个赋值操作，即：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=n>x</span> <span class=o>=</span><span class=n>a</span><span class=p>;</span> <span class=kt>int</span> <span class=n>y</span><span class=o>=</span><span class=n>b</span><span class=p>;</span> <span class=c1>//如果这样写，更容易弄清 x 与 a；y 与 b的关系了吧？对，他俩没关系。
+</span></span></span></code></pre></td></tr></table></div></div><h4 id=函数参数的传递>函数参数的传递</h4><ul><li><strong>函数的参数值传递本质就只有一种：那就是值传递。</strong></li><li>地址传递，引用传递其实都是值传递。只不过因为根据他们带来的一些效果，人们特别这样称呼他们而已；<ul><li>就比如：<strong>打篮球，不管你做出什么动作最终效果就是进球。有人将跳起来直接将篮球灌入篮框这一酷炫动作特称为：灌篮！</strong></li></ul></li></ul><p>我们可以通过断点调试的方式，来了解一下函数参数的值传递：</p><p><strong>请注意，每次调试时变量的地址都有可能不同，我的电脑中变量的地址和你的电脑中变量的地址也几乎不会相同；当你调试时不要对这些差异感到焦虑。</strong></p><p>在调用Swap函数前打上断点，观察到a、b的地址是：</p><p>a的地址 <code>0x000000016b66b4c8</code></p><p>b的地址 <code>0x000000016b66b4c0</code></p><img src=https://picture.939826.xyz/pictures/img/image-20250810171908194.png alt=image-20250810171908194 style=zoom:50%><p>进入到Swap函数中，观察到x、y的地址是：</p><p>x的地址 <code>0x000000016b66b49c</code></p><p>y的地址 <code>0x000000016b66b498</code></p><p><img src=https://picture.939826.xyz/pictures/img/image-20250810171742922.png loading=lazy alt=image-20250810171742922></p><p><strong>可以看到a、b的地址和x、y的地址不相同，那操作x、y影响的也只是x、y所在内存处的内容；与a、b没有任何关系了</strong>。</p><p>那么有什么办法，能实现调用Swap后交换a、b的值？方法不止一种，这里介绍一种：</p><h4 id=函数参数传递方式之地址传递>函数参数传递方式之：地址传递</h4><p>将a、b的地址传递给x、y；通过<code>*x</code>和<code>*y</code> 操作指定地址上的内存，就等于在操作函数外部的a、b。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;a is :%d ;b is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Swap</span><span class=p>(</span><span class=o>&amp;</span><span class=n>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;after swap ,a is :%d ;b is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=o>*</span><span class=n>y</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function begin,*x is :%d ;*y is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>temp</span> <span class=o>=</span> <span class=o>*</span><span class=n>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>x</span> <span class=o>=</span> <span class=o>*</span><span class=n>y</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>y</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function end,*x is :%d ;*y is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>观察a的地址 <code>0x000000016cfcb4c8</code></p><p>观察b的地址 <code>0x000000016cfcb4c4</code></p><img src=https://picture.939826.xyz/pictures/img/image-20250810173651743.png alt=image-20250810173651743 style=zoom:50%><p>x存储的值是 <code>0x000000016cfcb4c8</code> 这个地址指向的就是变量a；y存储的值是 <code>0x000000016cfcb4c4</code> 这个地址指向的就是变量b。</p><p>最后程序输出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>a is :1 <span class=p>;</span>b is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> begin,*x is :1 <span class=p>;</span>*y is: <span class=m>2</span> 
+</span></span><span class=line><span class=cl>in swap <span class=k>function</span> end,*x is :2 <span class=p>;</span>*y is: <span class=m>1</span> 
+</span></span><span class=line><span class=cl>after swap ,a is :2 <span class=p>;</span>b is: <span class=m>1</span> 
+</span></span></code></pre></td></tr></table></div></div><p>如此一来，我们通过<code>*x</code>和<code>*y</code>进行交换变量的操作，就是对a、b本身进行的操作。</p><p>总结：</p><ul><li><strong>函数的形参是实参值的拷贝、改变形参不会对实参产生影响；</strong></li><li><strong>在函数内想要操作函数外的变量，可以将外部变量的地址传递进来。</strong></li></ul><p>思考：形参是实参值的拷贝，改变形参不会对实参产生影响；那上面例子中通过<code>*x=*y;*y=temp;</code>最终改变了外部变量a、b的值，不就和前面的“不会对实参产生影响”自相矛盾了么？</p><p>我的理解：<strong>并没有冲突，因为a、b并不是实参，而&amp;a，&amp;b才是实参</strong></p><p>可以通过下面例子印证：形参的改变，不会影响实参&ndash;因为函数调用前后实参&amp;a和&amp;b的值没有变。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;a address is :%p ;b address is: %p </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Swap</span><span class=p>(</span><span class=o>&amp;</span><span class=n>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;a address is :%p ;b address is: %p </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//现在函数内部 将x与y的值进行交换 这样x、y的值改变 并不会影响实参 &amp;a 和 &amp;b的值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>Swap</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=o>*</span><span class=n>y</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function begin,x  is :%d ;y  is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=o>*</span><span class=n>temp</span> <span class=o>=</span> <span class=n>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=n>y</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>y</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;in swap function end,x  is :%d ;y  is: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>x</span><span class=p>,</span> <span class=o>*</span><span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>输出：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=n>a</span> <span class=n>address</span> <span class=nl>is</span> <span class=p>:</span><span class=mh>0x16f9374c8</span> <span class=p>;</span><span class=n>b</span> <span class=n>address</span> <span class=nl>is</span><span class=p>:</span> <span class=mh>0x16f9374c4</span> 
+</span></span><span class=line><span class=cl><span class=n>in</span> <span class=n>swap</span> <span class=n>function</span> <span class=n>begin</span><span class=p>,</span><span class=n>x</span>  <span class=nl>is</span> <span class=p>:</span><span class=mi>1</span> <span class=p>;</span><span class=n>y</span>  <span class=nl>is</span><span class=p>:</span> <span class=mi>2</span> 
+</span></span><span class=line><span class=cl><span class=n>in</span> <span class=n>swap</span> <span class=n>function</span> <span class=n>end</span><span class=p>,</span><span class=n>x</span>  <span class=nl>is</span> <span class=p>:</span><span class=mi>2</span> <span class=p>;</span><span class=n>y</span>  <span class=nl>is</span><span class=p>:</span> <span class=mi>1</span> 
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=n>address</span> <span class=nl>is</span> <span class=p>:</span><span class=mh>0x16f9374c8</span> <span class=p>;</span><span class=n>b</span> <span class=n>address</span> <span class=nl>is</span><span class=p>:</span> <span class=mh>0x16f9374c4</span> 
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/c%E8%AF%AD%E8%A8%80-%E8%BF%90%E7%AE%97%E7%AC%A6-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5/><div class=article-details><h2 class=article-title>c语言 运算符 表达式 语句</h2></div></a></article><article><a href=/p/c-%E5%B9%B3%E6%95%B4%E7%BB%93%E6%9E%84%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/><div class=article-details><h2 class=article-title>C++ 平整结构转树结构</h2></div></a></article><article><a href=/p/%E4%BD%BF%E7%94%A8vscode%E5%BC%80%E5%8F%91c/c-/><div class=article-details><h2 class=article-title>使用vscode开发c/c++</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=bigbosscyb/bigbosscyb.github.io data-repo-id=R_kgDOO59wIQ data-category=Announcements data-category-id=DIC_kwDOO59wIc4CrWIR data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 bigbosscyb</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
